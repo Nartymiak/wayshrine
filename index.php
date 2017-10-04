@@ -9,7 +9,7 @@ header("Expires: 0"); // Proxies.
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<meta name=viewport content="width=device-width, initial-scale=1"> 
 			<title>NBMAA Wayshrine | Review and Publish</title>
-			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/frameworks/bootstrap-3.3.7/css/bootstrap.min.css">
+			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/frameworks/bootstrap-3.3.7/css/bootstrap-yeti.min.css">
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/frameworks/bootstrap-3.3.7/css/bootstrap-table.min.css">
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/plugins/daterangepicker/daterangepicker.css">
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/plugins/summernote/summernote.css">
@@ -27,7 +27,7 @@ header("Expires: 0"); // Proxies.
 			<script type="text/javascript" src="js/app.js"></script>
 		</head>
 		<body>
-			<div id="app" class="container">
+			<div id="app" class="container-fluid" style="max-width: 1400px">
 				<div class="row">
 					<div class ="col-sm-12" id="login"></div>
 				</div>
@@ -51,8 +51,8 @@ header("Expires: 0"); // Proxies.
 					</div>
 					<div id="workSpace" class="col-sm-0 slideOver"></div>
 					<div id="chat" class="col-sm-3">
-						<div id="workSpaceChat"></div>
 						<div id="generalChat"></div>
+						<div id="noteSummary"></div>
 					</div>
 				</div>
 				<div class="row">

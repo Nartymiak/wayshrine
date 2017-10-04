@@ -11,6 +11,7 @@
 
             <script type="text/javascript">
                 $("#eventDraftsTable").bootstrapTable({
+                    silent: true,
                     height: 400,
                     search: true,
                     showRefresh: true,
@@ -19,6 +20,11 @@
                     columns: [{
                         field: 'ID',
                         title: 'ID',
+                        sortable: true,
+                        visible: false
+                    },{
+                        field: 'noteID',
+                        title: 'Event Note ID',
                         sortable: true,
                         visible: false
                     },{
@@ -35,7 +41,7 @@
                 });
 
                 $("#eventDraftsTable").on("click-row.bs.table", function(e, row, $element) {
-                    window.openDraftWorkSpace(row.ID, row.EventTitle);
+                    window.openDraftWorkSpace(row.ID, row.noteID, row.EventTitle);
                 });
             </script>
         

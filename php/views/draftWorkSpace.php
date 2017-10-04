@@ -31,8 +31,9 @@
 
 				<div class="row">
 			 		<div class="form-group col-sm-12">
-						<label for="draftAltruID">AltruID</label>
-						<input name="AltruID" type="text" class="form-control" id="draftAltruID" value="<?php echo $draft[0]['AltruID'];?>">
+						<div class="navbar navbar-default">
+							<p class="navbar-text"><small class="form-text text-muted"><strong>Altru ID:</strong> <?php echo $draft[0]['AltruID'];?></small></p>
+					 	</div>
 					 </div>
 				</div>
 			 	<div class="row">
@@ -49,6 +50,7 @@
 						<?php foreach($eventTypes as $et){  ?>
 							<option <?php if($et['KeywordID'] === $draft[0]['EventTypeID']){echo " selected "; } ?> value="<?php echo $et['KeywordID']; ?>"><?php echo $et['Word']; ?></option> 
 						<?php } ?>
+
 						</select>
 					</div>
 				</div>
@@ -59,29 +61,44 @@
 					</div>
 				</div>
 				<div class="row">
-				 	<div class="form-group col-sm-9">
+				 	<div class="form-group col-sm-12">
 						<label for="draftAdmissionCharge">Admission Charge</label>
 						<textarea name="AdmissionCharge" id="draftAdmissionCharge"><?php echo $draft[0]['AdmissionCharge'];?></textarea>
 					</div>
-				 	<div class="form-group col-sm-3">
-						<label for="draftAltruButton">Show Altru Button</label>
-						<input name="AltruButton" type="checkbox" style="display: block;" id="draftAltruButton" value="1" <?php if(!empty($draft[0]['AltruButton'])){ echo 'checked = "checked"'; }?>>
+				</div>
+				<div class="row">
+				 	<div class="form-group col-sm-12">
+				 		<label for="draftAltruButton">Show Altru Button (link to registration/purchase ticket page)</label>
+						<div class="input-group">
+							<span class="input-group-addon">
+								<input name="AltruButton" id="draftAltruButton" type="checkbox" value="1" <?php if(!empty($draft[0]['AltruButton'])){ echo 'checked = "checked"'; }?>>
+							</span>
+							<input  name="AltruLink" type="text" class="form-control" id="draftAltruLink" value="<?php echo $draft[0]['AltruLink'];?>" placeholder="paste altru link here...">
+						</div>
 					</div>
 				</div>
-				<div class=" draftDatTimeSection">
+				<div class=" draftDateTimeSection">
+					<div class="row">
+						<div class="col-sm-4">
+							<label for="draftStartDate">Date</label>
+						</div>
+					 	<div class="col-sm-4">
+							<label for="draftStartTime">Start Time</label>
+						</div>
+					 	<div class="col-sm-4">
+							<label for="draftEndTime">End Time</label>
+						</div>
+					</div>
 					<?php foreach ($draft as $d){ ?>
 
 						<div class="row draftDateTimeRow">
 						 	<div class="form-group col-sm-4">
-								<label for="draftStartDate">Date</label>
 								<input name="StartDate[]" type="date" class="form-control" id="draftStartDate" value="<?php echo $draft[$i]['StartDate'];?>">
 							</div>
 						 	<div class="form-group col-sm-4">
-								<label for="draftStartTime">Start Time</label>
 								<input name="StartTime[]" type="time" class="form-control" id="draftStartTime" value="<?php echo $draft[$i]['StartTime'];?>">
 							</div>
 						 	<div class="form-group col-sm-4 hasAddBtn">
-								<label for="draftEndTime">End Time</label>
 								<div class="input-group">
 									<input name="EndTime[]" type="time" class="form-control" id="draftEndTime" value="<?php echo $draft[$i]['EndTime'];?>">
 			                    	<span class="input-group-btn">	
@@ -98,6 +115,7 @@
 			                    </div>
 							</div>
 						</div>
+
 					<?php $i++; } ?>
 				</div>
 			 	<div class="row">

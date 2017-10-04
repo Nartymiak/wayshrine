@@ -131,16 +131,16 @@ wayshrine = function() {
             var form = $(this).closest("form");
             submitForm(form, controller);
         });
+        
         //dynamic add date & time
         $('#workSpace').on('click', '.addTime', function(e){
             e.preventDefault();
 
-            var draftDatTimeSection = $('.draftDatTimeSection'),
+            var draftDateTimeSection = $('.draftDateTimeSection'),
                 currentEntry = $(this).parents('.draftDateTimeRow:first'),
-                newEntry = $(currentEntry.clone()).appendTo(draftDatTimeSection);
+                newEntry = $(currentEntry.clone()).appendTo(draftDateTimeSection);
 
-            newEntry.find('label').remove();
-            draftDatTimeSection.find('.draftDateTimeRow .hasAddBtn:not(:last) .addTime')
+            draftDateTimeSection.find('.draftDateTimeRow .hasAddBtn:not(:last) .addTime')
                 .removeClass('addTime').addClass('removeTime')
                 .removeClass('btn-success').addClass('btn-danger')
                 .html('<span class="glyphicon glyphicon-minus"></span>');
@@ -228,7 +228,7 @@ wayshrine = function() {
     var sortChat = function(){
         if((workSpace.onView === 'note' && props.noteID !== null) || (workSpace.onView === 'draft' && props.eventID !== null)){
             $('.chatLine').each(function(){
-                if($(this).attr('cl-'+workSpace.onView+'-id') === props.noteID || $(this).attr('cl-'+workSpace.onView+'-id') === props.eventID){
+                if($(this).attr('cl-note-id') === props.noteID || $(this).attr('cl-draft-id') === props.eventID){
                     $(this).css('display','block');
                 } else { $(this).css('display', 'none') };
             });
@@ -240,6 +240,7 @@ wayshrine = function() {
     }
 
     var submitForm = function(form, controller, cb){
+
         $.ajax({
             url: 'php/fns/'+controller+'.php',
             beforeSend: function(xhr){
@@ -340,6 +341,12 @@ wayshrine = function() {
         return JSON.parse(window.atob(base64));
     };
 
+    var pastePlainText = function(e){
+        var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+        e.preventDefault();
+        document.execCommand('insertText', false, bufferText);
+    }
+
     /**
      * ===================================================================================
      * = PUBLIC FUNCTIONS
@@ -356,46 +363,20 @@ wayshrine = function() {
         });
     }
 
-    el.openDraftWorkSpace = function(id, name){
-        props.eventID = id;
+    el.openDraftWorkSpace = function(draftID, noteID, name){
+        props.eventID = draftID;
+        props.noteID = noteID;
         props.showing = name;
         props.eventName = name;
         view('draftWorkSpace', 'workSpace', function(){
+            view('noteSummary', 'noteSummary');
             workSpace.onView = 'draft';
             openWorkSpace();
             // text editors
             $('#draftAdmissionCharge').summernote('destroy');
             $('#draftDescription').summernote('destroy');
-            $('#draftAdmissionCharge').summernote({
-                height: 75,
-                disableDragAndDrop: true,
-                toolbar: [['misc', ['codeview']]],
-                callbacks: {
-                    onPaste: function (e) {
-                        var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
-                        e.preventDefault();
-                        document.execCommand('insertText', false, bufferText);
-                    }
-                }
-            });
-            $('#draftDescription').summernote({
-                height: 600,
-                disableDragAndDrop: true,
-                toolbar: [
-                    // [groupName, [list of button]]
-                    ['style', ['style', 'bold', 'italic', 'underline', 'clear']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['insert', ['link','linkDialogShow', 'unlink']],
-                    ['misc', ['fullscreen', 'codeview', 'help']]
-                ],
-                callbacks: {
-                    onPaste: function (e) {
-                        var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
-                        e.preventDefault();
-                        document.execCommand('insertText', false, bufferText);
-                    }
-                }
-            });
+            $('#draftAdmissionCharge').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
+            $('#draftDescription').summernote({ height: 600, disableDragAndDrop: true, toolbar: [['style', ['style', 'bold', 'italic', 'underline', 'clear']], ['para', ['ul', 'ol', 'paragraph']], ['insert', ['link','linkDialogShow', 'unlink']], ['misc', ['fullscreen', 'codeview', 'help']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
         });
     }
 
