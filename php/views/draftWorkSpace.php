@@ -174,12 +174,12 @@
 						</div>
 						<div class="row">
 						 	<div class="form-group col-sm-12">
-						 		<label for="draftOkToPub">Mark OK To Be Published</label>
+						 		<label for="draftOkToPub">Proofed By</label>
 								<div class="input-group">
 									<span class="input-group-addon">
 										<input name="OkToPubCheck" class="registrationCheck" type="checkbox" value="1" <?php if(!empty($draft[0]['OkToPub']) || $draft[0]['OkToPub'] === 0 ){ echo 'checked = "checked"'; }?>>
 									</span>
-									<input disabled name="OkToPub" type="text" class="form-control" id="draftOkToPub" value=" <?php if(!empty($draft[0]['OkToPub']) || $draft[0]['OkToPub'] === 0){ $user = getUser($draft[0]['OkToPub']); echo 'Marked OK by ' .$user[0]['Fname']. ' '.$user[0]['Lname']; }else{echo "none";}?>">
+									<input disabled name="OkToPub" type="text" class="form-control" id="draftOkToPub" value=" <?php if(!empty($draft[0]['OkToPub']) || $draft[0]['OkToPub'] === 0){ $user = getUser($draft[0]['OkToPub']); echo $user[0]['Fname']. ' '.$user[0]['Lname']; }else{echo "none";}?>">
 								</div>
 							</div>
 						</div>

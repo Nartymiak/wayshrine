@@ -29,7 +29,7 @@
                         visible: false
                     },{
                         field: 'OkToPub',
-                        title: 'OkToPub',
+                        title: 'Proofed By',
                         sortable: true
                     }, {
                         field: 'Print',
