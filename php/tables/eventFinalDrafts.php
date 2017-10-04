@@ -2,10 +2,10 @@
     include_once('../fns/getFns.php');
     include_once('../fns/checkToken.php');
 
-    $drafts = getEventDrafts();
+    $eventFinalDrafts = getEventFinalDrafts();
     $jsonArr = array();
   
-    foreach ($drafts as $e) {
+    foreach ($eventFinalDrafts as $e) {
 
         $user = getUser($e['OkToPub']);
         $user = $user[0]['Fname']. ' ' .$user[0]['Lname'];
@@ -38,5 +38,6 @@
              return '<span style="color:green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>'; 
         }
     }
+
 
 ?>

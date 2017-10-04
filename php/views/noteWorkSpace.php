@@ -12,6 +12,8 @@
 			$id = $json->{'noteID'};
 			$userTypes = $json->{'userTypes'};
 			$note = getNoteWorkspace($id);
+			$eventTypes = getEventTypes();
+			$exhibitions = getExhibitions();
 			$existsID = exists($note[0]['Name']);
 		?>
 
@@ -49,6 +51,30 @@
 					</div>
 				</div>
 				<div class="row">
+			 		<div class="form-group col-sm-12">
+						<label for="noteEventType">Event Type</label>
+						<select class="form-control" id="noteEventType" name="EventTypeID">
+
+						<?php foreach($eventTypes as $et){  ?>
+							<option <?php if($et['KeywordID'] === $note[0]['EventTypeID']){echo " selected "; } ?> value="<?php echo $et['KeywordID']; ?>"><?php echo $et['Word']; ?></option> 
+						<?php } ?>
+
+						</select>
+					</div>
+				</div>
+			 	<div class="row">
+			 		<div class="form-group col-sm-12">
+						<label for="noteRelatedExhibition">Related Exhibition</label>
+						<select class="form-control" id="noteRelatedExhibition" name="ExhibitionID">
+						<option value="" selected>Leave blank for none</option> 
+						<?php foreach($exhibitions as $exh){  ?>
+							<option <?php if($exh['ExhibitionID'] === $note[0]['ExhibitionID']){echo " selected "; } ?> value="<?php echo $exh['ExhibitionID']; ?>"><?php echo $exh['Title']; ?></option> 
+						<?php } ?>
+
+						</select>
+					</div>
+				</div>
+				<div class="row">
 				 	<div class="form-group col-sm-4">
 						<label for="noteStartDate">Date</label>
 						<input name="StartDate" type="date" class="form-control" id="noteStartDate" value="<?php echo $note[0]['StartDate'];?>">
@@ -69,13 +95,31 @@
 					</div>
 				</div>
 				<div class="row">
-				 	<div class="form-group col-sm-9">
-						<label for="noteAdmissionCharge">Admission Charge</label>
-						<textarea name="AdmissionCharge" rows="3" class="form-control" id="noteAdmissionCharge"><?php echo $note[0]['AdmissionCharge'];?></textarea>
+				 	<div class="form-group col-sm-12">
+				 		<label for="registrationEndDate">Registration End Date</label>
+						<div class="input-group">
+							<span class="input-group-addon">
+								<input name="RegistrationCheck" class="registrationCheck" type="checkbox" value="1" <?php if(!empty($note[0]['RegistrationEndDate'])){ echo 'checked = "checked"'; }?>>
+							</span>
+							<input  name="RegistrationEndDate" type="date" class="form-control registrationEndDate" id="registrationEndDate" value="<?php echo $note[0]['RegistrationEndDate'];?>">
+						</div>
 					</div>
-				 	<div class="form-group col-sm-3">
-						<label for="noteAltruButton">Show Altru Button</label>
-						<input name="AltruButton" type="checkbox" style="display: block;" id="noteAltruButton" value="1" <?php if(!empty($note[0]['AltruButton'])){ echo 'checked = "checked"'; }?>">
+				</div>
+				<div class="row">
+				 	<div class="form-group col-sm-12">
+						<label for="noteAdmissionCharge">Admission Charge</label>
+						<textarea name="AdmissionCharge" id="noteAdmissionCharge"><?php echo $note[0]['AdmissionCharge'];?></textarea>
+					</div>
+				</div>
+				<div class="row">
+				 	<div class="form-group col-sm-12">
+				 		<label for="noteAltruButton">Show Altru Button (link to registration/purchase ticket page)</label>
+						<div class="input-group">
+							<span class="input-group-addon">
+								<input name="AltruButton" id="draftAltruButton" type="checkbox" value="1" <?php if(!empty($note[0]['AltruButton']) || $note[0]['AltruButton'] != 0 ){ echo 'checked = "checked"'; }?>>
+							</span>
+							<input  name="AltruLink" type="text" class="form-control" id="draftAltruLink" value="<?php echo $note[0]['AltruLink'];?>" placeholder="paste altru link here...">
+						</div>
 					</div>
 				</div>
 			 	<div class="row">

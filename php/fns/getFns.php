@@ -81,9 +81,13 @@
 
    		$conn = pdo_connect();
 
-	 	$sql = 'SELECT 	EventID, AltruID, Name, StartDate, StartTime, EndTime, NoteWho, NoteWhat, NoteWhere,
-	 					NoteWhy, ImageSuggestions, Sponsors, CreatedOn
-	 			FROM 	EVENT_NOTES';
+	 	$sql = 'SELECT 		*
+	 			FROM 		(SELECT 	EventID, AltruID, Name, StartDate, StartTime, EndTime, NoteWho, NoteWhat, NoteWhere,
+	 									NoteWhy, ImageSuggestions, Sponsors, CreatedOn 
+	 						FROM 		EVENT_NOTES 
+	 						ORDER BY 	StartDate DESC) x
+	 			GROUP BY 	Name
+	 			ORDER BY 	StartDate DESC';
 		
 		$statement = $conn->prepare($sql);
 	    $statement->execute();
@@ -124,6 +128,51 @@
 		return $result;
     }
 
+    function getPrintTable(){
+
+    	$groupBy = true;
+
+		// create the connection
+		$conn = pdo_connect();
+
+		// write the generic statement
+		if($groupBy === true){
+			$sql = '	SELECT 		EVENT.EventID, EVENT.Title as EventTitle, MAX(EVENT_DATE_TIMES.StartDate)as StartDate, EVENT_DATE_TIMES.StartTime, EVENT_DATE_TIMES.EndTime, EventNoteID, OkToPub, Word, EXHIBITION.Title as ExhibitionTitle, EVENT.Description, ImgFilePath, Print, Sponsors, AdmissionCharge
+			      		FROM    	EVENT
+			      		LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
+			      		LEFT JOIN 	KEYWORD ON EVENT.EventTypeID = KEYWORD.KeywordID
+			      		LEFT JOIN 	EXHIBITION_EVENTS ON EVENT.EventID = EXHIBITION_EVENTS.EventID
+			      		LEFT JOIN 	EXHIBITION ON EXHIBITION_EVENTS.ExhibitionID = EXHIBITION.ExhibitionID
+			      		GROUP BY 	EVENT.EventID
+			      		ORDER BY 	EVENT_DATE_TIMES.StartDate DESC';
+		} else {
+
+
+			// write the generic statement
+			$sql = '	SELECT 		EVENT.EventID, EVENT.Title as EventTitle, EVENT_DATE_TIMES.StartDate, EVENT_DATE_TIMES.StartTime, EVENT_DATE_TIMES.EndTime, EventNoteID, OkToPub, Word, EXHIBITION.Title as ExhibitionTitle, EVENT.Description, ImgFilePath, Print, Sponsors, AdmissionCharge
+			      		FROM    	EVENT
+			      		LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
+			      		LEFT JOIN 	KEYWORD ON EVENT.EventTypeID = KEYWORD.KeywordID
+			      		LEFT JOIN 	EXHIBITION_EVENTS ON EVENT.EventID = EXHIBITION_EVENTS.EventID
+			      		LEFT JOIN 	EXHIBITION ON EXHIBITION_EVENTS.ExhibitionID = EXHIBITION.ExhibitionID
+			      		ORDER BY 	EVENT_DATE_TIMES.StartDate DESC';
+
+		}
+
+
+		// prepare the statement object
+		$statement = $conn->prepare($sql);
+
+		$statement->execute();
+
+		//Fetch all of the results.
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		// sort result by date
+		$conn = null;
+		return $result;
+    }
+
     function getExhibitions(){
 
 		// create the connection
@@ -148,18 +197,21 @@
 
     }
 
-	function getEventFinalCopies(){
+	function getEventFinalDrafts(){
 
 		// create the connection
 		$conn = pdo_connect();
 
 		// write the generic statement
-		$sql = '	SELECT 		Title, StartDate
+		$sql = '	SELECT 		EVENT.EventID, EVENT.Title as EventTitle, EVENT_DATE_TIMES.StartDate, EventNoteID, OkToPub, Word, EXHIBITION.Title as ExhibitionTitle, EVENT.Description, ImgFilePath, Print, Sponsors
 		      		FROM    	EVENT
 		      		LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
+		      		LEFT JOIN 	KEYWORD ON EVENT.EventTypeID = KEYWORD.KeywordID
+		      		LEFT JOIN 	EXHIBITION_EVENTS ON EVENT.EventID = EXHIBITION_EVENTS.EventID
+		      		LEFT JOIN 	EXHIBITION ON EXHIBITION_EVENTS.ExhibitionID = EXHIBITION.ExhibitionID
 		      		WHERE 		EVENT.Publish = "1"
 		      		GROUP BY 	EVENT.EventID
-		      		ORDER BY EVENT_DATE_TIMES.StartDate DESC';
+		      		ORDER BY 	EVENT_DATE_TIMES.StartDate DESC';
 
 		// prepare the statement object
 		$statement = $conn->prepare($sql);
@@ -179,7 +231,8 @@
 		$conn = pdo_connect();
 
 		// write the generic statement
-		$sql = 'SELECT 	EventID, AltruID, Name, StartDate, StartTime, EndTime, AdmissionCharge, AltruButton, NoteWhen, NoteWho, NoteWhat, NoteWhere,
+		$sql = 'SELECT 	EventID, AltruID, Name, EventTypeID, ExhibitionID, StartDate, StartTime, EndTime, RegistrationEndDate, 
+						AdmissionCharge, AltruButton, AltruLink, NoteWhen, NoteWho, NoteWhat, NoteWhere,
 	 					NoteWhy, ImageSuggestions, Sponsors, CreatedOn
 	 			FROM 	EVENT_NOTES
 	 			WHERE 	EventID = :id';
@@ -199,6 +252,35 @@
     }
 
  	function getDraftWorkspace($id){
+  		// create the connection
+		$conn = pdo_connect();
+
+		// write the generic statement
+		$sql = 'SELECT 		EVENT.EventID, Title, EVENT.Description AS Description, EVENT_DRAFTS.Description AS UserVersDesc, Blurb, 
+							AdmissionCharge, RegistrationEndDate, EventTypeID, ContactPerson, ImgFilePath, ImgCaption, Sponsors, AltruID, AltruButton, 
+							AltruLink, Link, EventNoteID, Publish, StartDate, StartTime, EndTime, ExhibitionID, OkToPub, Print, 
+							EVENT_DRAFTS.UserID AS UserVersUserID, EVENT_DRAFTS.CreatedOn AS UserVersCreatedOn
+	 			FROM 		EVENT
+		      	LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
+		      	LEFT JOIN 	EXHIBITION_EVENTS ON EVENT.EventID = EXHIBITION_EVENTS.EventID
+		      	LEFT JOIN 	EVENT_DRAFTS ON EVENT.EventID = EVENT_DRAFTS.EventID
+	 			WHERE 		EVENT.EventID = :id';
+
+		// prepare the statement object
+		$statement = $conn->prepare($sql);
+		$statement->bindValue(":id", $id, PDO::PARAM_STR);
+
+		$statement->execute();
+
+		//Fetch all of the results.
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		// sort result by date
+		$conn = null;
+		return $result;	
+    }
+
+ 	function getFinalDraftWorkspace($id){
   		// create the connection
 		$conn = pdo_connect();
 

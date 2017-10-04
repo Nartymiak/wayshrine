@@ -32,10 +32,10 @@
 
     function makeCheckMark($var){
     
-        if(!empty($var)){ 
-            return '<span style="color:green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>'; 
+        if(empty($var) || $var == '<p><br></p>'){ 
+            return '<span style="color:red" class="glyphicon glyphicon-remove" aria-hidden="true"></span>'; 
         } else {
-             return '<span style="color:red" class="glyphicon glyphicon-remove" aria-hidden="true"></span>'; 
+             return '<span style="color:green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>'; 
         }
     }
 
