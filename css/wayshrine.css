@@ -1,0 +1,62 @@
+.workSpaceList {
+	margin:24px 0;
+	border-top:1px solid rgba(0,0,0, .33);
+	padding:24px 0;
+}
+
+#view, #workSpace {
+    -webkit-transition: width 0.3s ease, margin 0.3s ease;
+    -moz-transition: width 0.3s ease, margin 0.3s ease;
+    -o-transition: width 0.3s ease, margin 0.3s ease;
+    transition: width 0.3s ease, margin 0.3s ease;
+}
+
+#viewWorkSpaceButton {
+	font-size:4em;
+	color:rgba(0,0,0,.33);
+	cursor: pointer;
+}
+
+#noteChatView {
+	height:8em;
+	overflow: scroll;
+	margin-bottom:2em;
+}
+
+#noteChatForm {
+	margin-bottom: 2em;
+}
+
+.chatName {
+	font-size:.75em;
+}
+
+.rotate {
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+	transition: transform .25s linear;
+}
+
+.unrotate {
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+	transition: transform .25s linear;	
+}
+
+.multiple-select-row-selected {
+    background: lightBlue
+}
+
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+  background-color: transparent;
+}
+
+
+.table-striped tbody tr:nth-child(odd):hover td {
+   background-color: #F9F9F9;
+}
+
+.fixed-table-container tbody .selected td {
+    background: lightBlue;
+}
