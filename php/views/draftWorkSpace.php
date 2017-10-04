@@ -174,7 +174,13 @@
 							<div class="form-group col-sm-12">
 								<label for="imgFileName">Upload a new file or type the name of a file already on our website</label>
 								<div class="input-group file-preview">
-									<input placeholder="Leave blank to remove any images" type="text" class="form-control file-preview-filename" id="imgFileName" name="ImgFileName">
+								<?php if($draft[0]['ImgFilePath'] !== '' && $draft[0]['ImgFilePath'] !== NULL ){
+									echo '<input placeholder="Leave blank to remove any images" type="text" class="form-control file-preview-filename" id="imgFileName" name="ImgFileName" value="'.$draft[0]['ImgFilePath'].'">
+';
+								}else{
+									echo '<input placeholder="Leave blank to remove any images" type="text" class="form-control file-preview-filename" id="imgFileName" name="ImgFileName">
+';
+									} ?>
 									<span class="input-group-btn"> 
 										<div class="btn btn-default filePreviewBtn">
 											<span class="glyphicon glyphicon-folder-open"></span> <span class="filePreviewInputTitle">Browse</span>
