@@ -10,56 +10,76 @@
 			}
 		}
 
-        var_dump($_POST);
-
+        if(editEvent()){
+            echo "Excellent! " .$_POST['Title']. " has been updated.";
+        }
     }
 
    	function editEvent(){
 
-        var_dump($_POST);
+        $errors = array('event' => array(), 'dateTimes' => array());
+        $dateCount = count($_POST['StartDate']);
 
         $conn = pdo_connect();
 
-        $sql = 'UPDATE 	EVENT_NOTES 
-        		SET  	Name = :Name, 
-        				StartDate = :StartDate, 
-        				StartTime = :StartTime,
-                        EndTime = :EndTime,
+        $sql = 'UPDATE 	EVENT 
+        		SET  	Title = :Title, 
+        				Description = :Description, 
                         AdmissionCharge = :AdmissionCharge,
-                        AltruButton = :AltruButton,
-                        NoteWhen = :NoteWhen, 
-        				NoteWho = :NoteWho, 
-        				NoteWhat = :NoteWhat, 
-        				NoteWhere = :NoteWhere, 
-        				NoteWhy = :NoteWhy,
-                        ImageSuggestions = :ImageSuggestions,
-        				Sponsors = :Sponsors
+                        EventTypeID = :EventTypeID,
+        				Sponsors = :Sponsors, 
+        				AltruID = :AltruID, 
+        				AltruButton = :AltruButton, 
+        				Publish = 0
                 WHERE  	EventID = :EventID';
 
-        // prepare the statement object
         $statement = $conn->prepare($sql);
-
-        $statement->bindValue(":Name", $_POST['Name'], PDO::PARAM_STR);
-        $statement->bindValue(":StartDate", $_POST['StartDate'], PDO::PARAM_STR);
-        $statement->bindValue(":StartTime", $_POST['StartTime'], PDO::PARAM_STR);
-        if($_POST['EndTime'] === NULL) { $statement->bindValue(":EndTime", NULL, PDO::PARAM_STR); }
-        else { $statement->bindValue(":EndTime", $_POST['EndTime'], PDO::PARAM_STR); }
+        $statement->bindValue(":Title", $_POST['Title'], PDO::PARAM_STR);
+        $statement->bindValue(":Description", $_POST['Description'], PDO::PARAM_STR);
         $statement->bindValue(":AdmissionCharge", $_POST['AdmissionCharge'], PDO::PARAM_STR);
+        $statement->bindValue(":EventTypeID", $_POST['EventTypeID'], PDO::PARAM_STR);
+        $statement->bindValue(":Sponsors", $_POST['Sponsors'], PDO::PARAM_STR);
+        $statement->bindValue(":AltruID", $_POST['AltruID'], PDO::PARAM_STR);
         if(isset($_POST['AltruButton']) && $_POST['AltruButton'] === '1') { $statement->bindValue(":AltruButton", 1, PDO::PARAM_INT); }
         else { $statement->bindValue(":AltruButton", 0, PDO::PARAM_INT); }
-        $statement->bindValue(":NoteWhen", $_POST['NoteWhen'], PDO::PARAM_STR);
-        $statement->bindValue(":NoteWho", $_POST['NoteWho'], PDO::PARAM_STR);
-        $statement->bindValue(":NoteWhat", $_POST['NoteWhat'], PDO::PARAM_STR);
-        $statement->bindValue(":NoteWhere", $_POST['NoteWhere'], PDO::PARAM_STR);
-        $statement->bindValue(":NoteWhy", $_POST['NoteWhy'], PDO::PARAM_STR);
-        $statement->bindValue(":ImageSuggestions", $_POST['ImageSuggestions'], PDO::PARAM_STR);
-        $statement->bindValue(":Sponsors", $_POST['Sponsors'], PDO::PARAM_STR);
-        $statement->bindValue(":EventID", $_POST['EventID'], PDO::PARAM_STR);
+        $statement->bindValue(":EventID", $_POST['EventID'], PDO::PARAM_INT);
 
-        $statement->execute();
+        try { $statement->execute(); }
+        catch (Exception $e){ array_push($errors['event'], $e->getMessage()); }
+        
+        if($dateCount > 0){
+
+            $sql = 'DELETE
+                    FROM    EVENT_DATE_TIMES
+                    WHERE   EventID = :EventID';
+            $statement = $conn->prepare($sql);
+            $statement->bindValue(":EventID", $_POST['EventID'], PDO::PARAM_INT);
+
+            try { $statement->execute(); }
+            catch (Exception $e){ array_push($errors['dateTimes'], $e->getMessage()); }
+
+            $sql = 'INSERT INTO EVENT_DATE_TIMES (EventID, StartDate, EndDate, StartTime, EndTime)
+                    VALUES (:EventID, :StartDate, :EndDate, :StartTime, :EndTime)';
+            $statement = $conn->prepare($sql);
+            
+            for($i=0;$i<$dateCount;$i++){
+
+                $statement->bindValue(":EventID", $_POST['EventID'], PDO::PARAM_INT);
+                $statement->bindValue(":StartDate", $_POST['StartDate'][$i], PDO::PARAM_STR);
+                $statement->bindValue(":EndDate", $_POST['StartDate'][$i], PDO::PARAM_STR);
+                $statement->bindValue(":StartTime", $_POST['StartTime'][$i], PDO::PARAM_STR);
+                $statement->bindValue(":EndTime", $_POST['EndTime'][$i], PDO::PARAM_STR);
+                
+                try { $statement->execute(); }
+                catch (Exception $e){ array_push($errors['dateTimes'], $e->getMessage()); }
+            }
+        }
+
+        if(!empty($errors['dateTimes'])){
+            var_dump($errors['dateTimes']);
+        }
 
         $conn = null;
         return true;
-
     }
 ?>
