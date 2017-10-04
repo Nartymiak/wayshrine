@@ -23,8 +23,8 @@
                         sortable: true,
                         visible: false
                     },{
-                        field: 'Exists',
-                        title: 'DB',
+                        field: 'InDraft',
+                        title: 'Drafted',
                         sortable: true
                     },{
                         field: 'Name',
@@ -68,6 +68,10 @@
                     }, {
                         field: 'Sponsors',
                         title: 'Sponsors',
+                        sortable: true
+                    },{
+                        field: 'Exists',
+                        title: 'DB',
                         sortable: true
                     }]
                 });

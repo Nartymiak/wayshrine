@@ -28,8 +28,24 @@
                         sortable: true,
                         visible: false
                     },{
+                        field: 'OkToPub',
+                        title: 'OkToPub',
+                        sortable: true
+                    }, {
+                        field: 'Print',
+                        title: 'Print',
+                        sortable: true
+                    },{
                         field: 'EventTitle',
                         title: 'Title',
+                        sortable: true
+                    },{
+                        field: 'EventType',
+                        title: 'Type',
+                        sortable: true
+                    },{
+                        field: 'RelatedExhibition',
+                        title: 'Exhibition',
                         sortable: true
                     }, {
                         field: 'StartDate',
@@ -37,6 +53,18 @@
                         sortable: true,
                         formatter: dateFormatter,
                         width: 125
+                    }, {
+                        field: 'Description',
+                        title: 'Desc',
+                        sortable: true
+                    }, {
+                        field: 'Img',
+                        title: 'Img',
+                        sortable: true
+                    }, {
+                        field: 'Sponsors',
+                        title: 'Sponsors',
+                        sortable: true
                     }]
                 });
 

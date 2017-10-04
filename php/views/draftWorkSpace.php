@@ -8,12 +8,14 @@
 
 
 		}else{
+
 			// begin payload
 			$json = json_decode($_POST['props']);
 			$id = $json->{'eventID'};
 			$userTypes = $json->{'userTypes'};
 			$draft = getDraftWorkspace($id);
 			$eventTypes = getEventTypes();
+			$exhibitions = getExhibitions();
 			// for dateTimes
 			$i = 0;
 			$dCount = count($draft);
@@ -37,6 +39,7 @@
 		 	<div class="tab-content">
 			 	<div class="tab-pane active" id="draftCopy">
 					<form id="eventDraftForm">
+						<input name="UserID" type="hidden" class="form-control" id="userID" value="<?php echo $json->{'userID'};?>">
 						<input name="EventID" type="hidden" class="form-control" id="eventID" value="<?php echo $draft[0]['EventID'];?>">
 						<input name="AltruID" type="hidden" class="form-control" id="altruID" value="<?php echo $draft[0]['AltruID'];?>">
 
@@ -60,6 +63,18 @@
 
 								<?php foreach($eventTypes as $et){  ?>
 									<option <?php if($et['KeywordID'] === $draft[0]['EventTypeID']){echo " selected "; } ?> value="<?php echo $et['KeywordID']; ?>"><?php echo $et['Word']; ?></option> 
+								<?php } ?>
+
+								</select>
+							</div>
+						</div>
+					 	<div class="row">
+					 		<div class="form-group col-sm-12">
+								<label for="draftRelatedExhibition">Related Exhibition</label>
+								<select class="form-control" id="draftRelatedExhibition" name="ExhibitionID">
+								<option value="" selected>Leave blank for none</option> 
+								<?php foreach($exhibitions as $exh){  ?>
+									<option <?php if($exh['ExhibitionID'] === $draft[0]['ExhibitionID']){echo " selected "; } ?> value="<?php echo $exh['ExhibitionID']; ?>"><?php echo $exh['Title']; ?></option> 
 								<?php } ?>
 
 								</select>
@@ -131,7 +146,7 @@
 						</div>
 						<div class="row">
 						 	<div class="form-group col-sm-12">
-						 		<label for="draftAltruButton">Registration End Date</label>
+						 		<label for="registrationEndDate">Registration End Date</label>
 								<div class="input-group">
 									<span class="input-group-addon">
 										<input name="RegistrationCheck" class="registrationCheck" type="checkbox" value="1" <?php if(!empty($draft[0]['RegistrationEndDate'])){ echo 'checked = "checked"'; }?>>
@@ -144,6 +159,28 @@
 					 		<div class="form-group col-sm-12">
 								<label for="sponsors">Sponsors</label>
 								<textarea name="Sponsors" class="form-control" id="draftSponsors" rows="3"><?php echo $draft[0]['Sponsors'];?></textarea>
+							</div>
+						</div>
+						<div class="row">
+						 	<div class="form-group col-sm-12">
+						 		<label for="draftPrint">Use In Print Material</label>
+								<div class="input-group">
+									<span class="input-group-addon">
+										<input name="PrintCheck" class="registrationCheck" type="checkbox" value="1" <?php if(!empty($draft[0]['Print']) || $draft[0]['Print'] === 0 ){ echo 'checked = "checked"'; }?>>
+									</span>
+									<input placeholder="Invitation, flyer, etc..." name="Print" type="text" class="form-control" id="draftPrint" <?php if(!empty($draft[0]['Print']) || $draft[0]['Print'] === 0){ echo 'value="' .$draft[0]['Print'].'"'; }?>">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+						 	<div class="form-group col-sm-12">
+						 		<label for="draftOkToPub">Mark OK To Be Published</label>
+								<div class="input-group">
+									<span class="input-group-addon">
+										<input name="OkToPubCheck" class="registrationCheck" type="checkbox" value="1" <?php if(!empty($draft[0]['OkToPub']) || $draft[0]['OkToPub'] === 0 ){ echo 'checked = "checked"'; }?>>
+									</span>
+									<input disabled name="OkToPub" type="text" class="form-control" id="draftOkToPub" value=" <?php if(!empty($draft[0]['OkToPub']) || $draft[0]['OkToPub'] === 0){ $user = getUser($draft[0]['OkToPub']); echo 'Marked OK by ' .$user[0]['Fname']. ' '.$user[0]['Lname']; }else{echo "none";}?>">
+								</div>
 							</div>
 						</div>
 						<div class="row">
@@ -168,6 +205,7 @@
 						</div>
 					</div>
 					<form id="eventDraftImagesForm">
+						<input name="UserID" type="hidden" class="form-control" id="userID" value="<?php echo $json->{'userID'};?>">
 						<input name="EventID" type="hidden" class="form-control" id="eventID" value="<?php echo $draft[0]['EventID'];?>">
 						<input name="Link" type="hidden" class="form-control" id="eventLink" value="<?php echo $draft[0]['Link'] ?>">
 						<div class="row">
