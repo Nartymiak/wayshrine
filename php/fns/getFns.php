@@ -86,8 +86,7 @@
 	 									NoteWhy, ImageSuggestions, Sponsors, CreatedOn 
 	 						FROM 		EVENT_NOTES 
 	 						ORDER BY 	StartDate DESC) x
-	 			GROUP BY 	Name
-	 			ORDER BY 	StartDate DESC';
+	 			GROUP BY 	Name';
 		
 		$statement = $conn->prepare($sql);
 	    $statement->execute();

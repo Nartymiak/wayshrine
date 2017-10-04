@@ -17,25 +17,27 @@
 
    	function editEvent(){
 
-        $errors = array('event' => array(), 'dateTimes' => array(), 'relatedExhibition' => array());
+        $errors = array('eventDraft' => array(), 'event' => array(), 'dateTimes' => array(), 'relatedExhibition' => array());
         $dateCount = count($_POST['StartDate']);
+        $changedOn = date('Y-m-d H:i:s');
 
         $conn = pdo_connect();
 
-        $sql = 'UPDATE 	EVENT 
-        		SET  	Title = :Title, 
-        				Description = :Description, 
+
+        $sql = 'UPDATE  EVENT 
+                SET     Title = :Title, 
+                        Description = :Description, 
                         AdmissionCharge = :AdmissionCharge,
                         EventTypeID = :EventTypeID,
-        				Sponsors = :Sponsors, 
-        				AltruID = :AltruID,
-        				AltruButton = :AltruButton,
+                        Sponsors = :Sponsors, 
+                        AltruID = :AltruID,
+                        AltruButton = :AltruButton,
                         AltruLink = :AltruLink,
                         RegistrationEndDate = :RegistrationEndDate,
                         OkToPub = :OkToPub,
                         Print = :Print,
-        				Publish = 0
-                WHERE  	EventID = :EventID';
+                        Publish = 0
+                WHERE   EventID = :EventID';
 
         $statement = $conn->prepare($sql);
         $statement->bindValue(":Title", $_POST['Title'], PDO::PARAM_STR);
