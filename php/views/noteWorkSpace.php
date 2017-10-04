@@ -45,7 +45,7 @@
 			 	<div class="row">
 			 		<div class="form-group col-sm-12">
 						<label for="noteName">Name</label>
-						<input name="Name" type="text" class="form-control" id="noteName" value="<?php echo $note[0]['Name'];?>">
+						<input name="Name" type="text" class="form-control" id="noteName" value="<?php echo htmlentities($note[0]['Name']);?>">
 					</div>
 				</div>
 				<div class="row">

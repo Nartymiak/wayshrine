@@ -3,7 +3,8 @@ wayshrine = function() {
     var pwAttempt = 0;
 
     var settings = {
-        chatInterval: 2500
+        chatInterval: 2500,
+        useBlob: false && window.URL // set to true if want to try to use blob
     }
 
     var jwt = {
@@ -18,6 +19,7 @@ wayshrine = function() {
         noteID: null,
         noteName: null,
         eventID: null,
+        imageFileName: null,
         eventName: null,
         showing: 'general'
     }
@@ -70,6 +72,7 @@ wayshrine = function() {
             });
             appendMenuCtrl();
             appendFormCtrl();
+            appendUploadImgCtrl();
         }
     }
 
@@ -117,13 +120,14 @@ wayshrine = function() {
 
     var appendFormCtrl = function(){
 
-        // user clicks on submit in notes
+        // user clicks on submit
         $('#workSpace').on('click', '.submit', function(e){
             e.preventDefault();
             var controller = $(this).attr('data-ctrl');
             var form = $(this).closest("form");
             submitForm(form, controller);
         });
+
         // user clicks on send to draft in notes
         $('#workSpace').on('click', '.sendNoteToDraft', function(e){
             e.preventDefault();
@@ -152,12 +156,49 @@ wayshrine = function() {
         });
     }
 
-    var appendLoginCtrl = function(){
+    var appendUploadImgCtrl = function(){ 
+        window.URL  = window.URL || window.webkitURL;
+        //binds to onchange event of your input field
+        $('#workSpace').on('change', '.inputFilePreview', function() {     
+            var files = this.files, errors = "";
+            $("#debug").empty();
+            $("#imgPreview").empty();
+            $("#imgFileName").val('');
+            if (!files) { errors += "No file(s) selected or file upload not supported by your browser."; }
+            else {
+                for(var i=0; i<files.length; i++) {
+                    var er = imgFileError(files[i]);
+                    if(!er){
+                        props.imageFileName = files[i].name;
+                        previewImg(files[i], 'imgPreview');
+                        $("#imgFileName").val(props.imageFileName);
+                    }else { 
+                        errors += er; 
+                    }
+                }
+            }
+            // Handle errors
+            if (errors) { $('#debug').html('<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Warning!</strong> '+errors+'</div>'); }
+        });
 
+        // user clicks on image form submit
+        $('#workSpace').on('click', '.uploadImgBtn', function(e){
+            e.preventDefault();
+            var controller = $(this).attr('data-ctrl');
+            var form = $(this).closest("form");
+            var inputFiles = $('.inputFilePreview').prop('files')[0];
+            uploadImg(form, inputFiles, controller, function(){
+                if(props.imageFileName != null){
+                    $('#imgPreview').html('<img src="http://www.nbmaa.org/images/event-page-images/'+props.imageFileName +'">');
+                }
+            });
+        });
+    }
+
+    var appendLoginCtrl = function(){
         $('#login').on('click', '#loginButton', function(e){
             var username = $("#loginID").val();
             var password = $("#loginPW").val();
-
             e.preventDefault();
             login(username, password);
         });
@@ -191,7 +232,6 @@ wayshrine = function() {
     }
 
     var beginChatInterval = function(){
-
         if(chat.intervalID!==null){ clearInterval(chat.intervalID); }
         updateChat();
         window.setInterval(function(){
@@ -254,19 +294,97 @@ wayshrine = function() {
                 $("#debug").html('<div class="alert alert-success" role="alert">'+data+'</div>');
                 // add auto chat
                 if(form.attr('id')==='eventNoteForm'){ 
-                    addChat('EventNoteID='+props.noteID+'&UserID='+props.userID+'&LineText=Updated <span class="chatLink" chat-link-id="'+ props.noteID +'">' + props.noteName + '</span> in NOTES'); 
+                    addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated text in<span class="chatLink" chat-link-id="'+ props.noteID +'">' + props.noteName + '</span> in NOTES'); 
                 } else if(form.attr('id')==='eventDraftForm'){
-                    addChat('EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated <span class="chatLink" chat-link-id="'+ props.eventID +'">' + props.eventName + '</span> in DRAFTS');
+                    addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated text in<span class="chatLink" chat-link-id="'+ props.eventID +'">' + props.eventName + '</span> in DRAFTS');
                 }
             },
             error: function( xhr, status, errorThrown ) {
                 $("#debug").empty();
-                $("#debug").html('<div class="alert alert-danger" role="alert"><strong>Oops! Something went wrong. Your information was not saved.</strong><br> Code: ' +errorThrown+' </div>');
+                $("#debug").html('<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Oops! Something went wrong. Your information was not saved.</strong><br> Code: ' +errorThrown+' </div>');
             },
             complete: function( xhr, status ) {
                 if(cb){ cb() };
             }
         });
+    }
+
+    function previewImg (file, previewID) {
+        var reader = new FileReader();
+        var elPreview = document.getElementById(previewID);
+
+        reader.addEventListener("load", function () {
+            var image = new Image();
+            image.addEventListener("load", function () {
+                var imageInfo = image.width +' × '+ image.height +' | '+ file.type +' | '+ Math.round(file.size/1024) +'KB';
+                // Show image and info
+                elPreview.innerHTML = "";
+                elPreview.appendChild( this );
+                elPreview.insertAdjacentHTML("beforeend", '<p>' + imageInfo + '</p>' );
+                if (settings.useBlob) {
+                    // Free some memory
+                    window.URL.revokeObjectURL(image.src);
+                }
+            });
+            image.src = settings.useBlob ? window.URL.createObjectURL(file) : reader.result;
+        });
+        reader.readAsDataURL(file);  
+    }
+
+    var uploadImg = function(form, files, controller, cb){
+
+        var formData = new FormData(form[0]);
+        
+        if(files){
+            var errors = false;
+            for(var i=0;i<files.length;i++){
+                var er = imgFileError(files);
+                if(er){ errors += er;}
+            }     
+            if(!errors){
+                for(var j=0;j<files.length;j++){
+                    formData.append("imgFiles[]", files[i]);
+                }
+            } else {
+                $("#debug").html('<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Oops! </strong>There was problem with the file(s) you selected.<br> Code: ' +errors+' </div>');
+                return;
+            }
+        }
+        $.ajax({
+            url: 'php/fns/'+controller+'.php',
+            beforeSend: function(xhr){
+                xhr.setRequestHeader('Toke', jwt.unParsed);
+            },
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,                        
+            dataType : 'text',
+            success: function(data){
+                $("#debug").html('<div class="alert alert-success" role="alert">'+data+'</div>');
+                // add auto chat
+                addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated image for <span class="chatLink" chat-link-id="'+ props.eventID +'">' + props.eventName + '</span> in DRAFT'); 
+            },
+            error: function( xhr, status, errorThrown ) {
+                $("#debug").html('<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Oops! Something went wrong. Your information was not saved.</strong><br> Code: ' +errorThrown+' </div>');
+            },
+            complete: function( xhr, status ) {
+                if(cb){ cb() };
+            }
+        });
+
+    }
+
+    function imgFileError(file){
+        var errors = '';
+        if(!file){  return 'No file selected<br>'; }
+        else {
+            if(file.name.length < 1) { errors += 'File name is invalid. '; }
+            if(file.size > 150000) { errors += 'File size is over 150kb. '; }
+            if(file.type != 'image/jpg' && file.type != 'image/gif' && file.type != 'image/jpeg') { errors += 'File is not a .jpg or .gif. '; }
+        }
+        if(errors != ''){ return errors; }
+        else {return false; }
     }
 
     var login = function(username, password){
@@ -283,7 +401,7 @@ wayshrine = function() {
                 if(data.jwt === false){
                     pwAttempt ++;
                     $('#loginError').empty();
-                    $('#loginError').html('<div class="alert alert-danger">Incorrect credentials (attempts: '+pwAttempt+')</div>');
+                    $('#loginError').html('<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-warning-sign"></span> Incorrect credentials (attempts: '+pwAttempt+')</div>');
                     jwt.exists = false;
                 } else {
                     pwAttempt = 0;
@@ -357,6 +475,8 @@ wayshrine = function() {
         props.noteID = id;
         props.showing = name;
         props.noteName = name;
+        props.eventID = null;
+        props.eventName = null;
         view('noteWorkSpace', 'workSpace', function(){
             workSpace.onView = 'note';
             openWorkSpace();
@@ -368,6 +488,8 @@ wayshrine = function() {
         props.noteID = noteID;
         props.showing = name;
         props.eventName = name;
+        props.imageFileName = null;
+        props.noteName = null;
         view('draftWorkSpace', 'workSpace', function(){
             view('noteSummary', 'noteSummary');
             workSpace.onView = 'draft';
@@ -375,8 +497,10 @@ wayshrine = function() {
             // text editors
             $('#draftAdmissionCharge').summernote('destroy');
             $('#draftDescription').summernote('destroy');
+            $('#imgCaption').summernote('destroy');
             $('#draftAdmissionCharge').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
             $('#draftDescription').summernote({ height: 600, disableDragAndDrop: true, toolbar: [['style', ['style', 'bold', 'italic', 'underline', 'clear']], ['para', ['ul', 'ol', 'paragraph']], ['insert', ['link','linkDialogShow', 'unlink']], ['misc', ['fullscreen', 'codeview', 'help']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
+            $('#imgCaption').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['style', ['bold', 'italic', 'clear']], ['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
         });
     }
 
