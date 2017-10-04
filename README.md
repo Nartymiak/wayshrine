@@ -1,5 +1,5 @@
 # wayshrine
-website content administrator and organizer for staff
+website content management system and organizer for staff
 version notation
 
 
