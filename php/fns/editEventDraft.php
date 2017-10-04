@@ -29,7 +29,8 @@
                         EventTypeID = :EventTypeID,
         				Sponsors = :Sponsors, 
         				AltruID = :AltruID, 
-        				AltruButton = :AltruButton, 
+        				AltruButton = :AltruButton,
+                        AltruLink = :AltruLink,
         				Publish = 0
                 WHERE  	EventID = :EventID';
 
@@ -40,6 +41,7 @@
         $statement->bindValue(":EventTypeID", $_POST['EventTypeID'], PDO::PARAM_STR);
         $statement->bindValue(":Sponsors", $_POST['Sponsors'], PDO::PARAM_STR);
         $statement->bindValue(":AltruID", $_POST['AltruID'], PDO::PARAM_STR);
+        $statement->bindValue(":AltruLink", $_POST['AltruLink'], PDO::PARAM_STR);
         if(isset($_POST['AltruButton']) && $_POST['AltruButton'] === '1') { $statement->bindValue(":AltruButton", 1, PDO::PARAM_INT); }
         else { $statement->bindValue(":AltruButton", 0, PDO::PARAM_INT); }
         $statement->bindValue(":EventID", $_POST['EventID'], PDO::PARAM_INT);

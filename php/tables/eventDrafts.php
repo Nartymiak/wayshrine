@@ -9,6 +9,7 @@
 
         array_push($jsonArr, array(
             'ID' =>  $e['EventID'],
+            'noteID' =>  $e['EventNoteID'],
             'EventTitle' =>  $e['Title'],
             'StartDate' =>  $e['StartDate']
             )

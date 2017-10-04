@@ -82,7 +82,7 @@
 		$conn = pdo_connect();
 
 		// write the generic statement
-		$sql = '	SELECT 		EVENT.EventID, Title, StartDate
+		$sql = '	SELECT 		EVENT.EventID, Title, StartDate, EventNoteID
 		      		FROM    	EVENT
 		      		LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
 		      		WHERE 		EVENT.Publish = "0"
@@ -158,7 +158,7 @@
 
 		// write the generic statement
 		$sql = 'SELECT 		EVENT.EventID, Title, Description, Blurb, AdmissionCharge, RegistrationEndDate, 
-							EventTypeID, ContactPerson, ImgFilePath, ImgCaption, Sponsors, AltruID, AltruButton, 
+							EventTypeID, ContactPerson, ImgFilePath, ImgCaption, Sponsors, AltruID, AltruButton, AltruLink, 
 							Link, EventNoteID, Publish, StartDate, StartTime, EndTime
 	 			FROM 		EVENT
 		      	LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
