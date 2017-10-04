@@ -65,7 +65,8 @@ wayshrine = function() {
             view('menu', 'menu');
             view('eventNotes', 'eventNotes');
             view('eventDrafts', 'eventDrafts');
-            view('eventFinalCopies', 'eventFinalCopies');
+            view('eventFinalDrafts', 'eventFinalDrafts');
+            view('printTable', 'printTable');
             view('generalChat', 'generalChat', function(){
                 beginChatInterval();
                 appendChatCtrl();
@@ -481,6 +482,9 @@ wayshrine = function() {
         view('noteWorkSpace', 'workSpace', function(){
             workSpace.onView = 'note';
             openWorkSpace();
+            // text editors
+            $('#noteAdmissionCharge').summernote('destroy');
+            $('#noteAdmissionCharge').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
         });
     }
 
@@ -504,6 +508,28 @@ wayshrine = function() {
             $('#imgCaption').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['style', ['bold', 'italic', 'clear']], ['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
         });
     }
+
+    el.openFinalDraftWorkSpace = function(draftID, noteID, name){
+        props.eventID = draftID;
+        props.noteID = noteID;
+        props.showing = name;
+        props.eventName = name;
+        props.imageFileName = null;
+        props.noteName = null;
+        view('finalDraftWorkSpace', 'workSpace', function(){
+            view('noteSummary', 'noteSummary');
+            workSpace.onView = 'draft';
+            openWorkSpace();
+            // text editors
+            $('#draftAdmissionCharge').summernote('destroy');
+            $('#draftDescription').summernote('destroy');
+            $('#imgCaption').summernote('destroy');
+            $('#draftAdmissionCharge').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
+            $('#draftDescription').summernote({ height: 600, disableDragAndDrop: true, toolbar: [['style', ['style', 'bold', 'italic', 'underline', 'clear']], ['para', ['ul', 'ol', 'paragraph']], ['insert', ['link','linkDialogShow', 'unlink']], ['misc', ['fullscreen', 'codeview', 'help']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
+            $('#imgCaption').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['style', ['bold', 'italic', 'clear']], ['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
+        });
+    }
+
 
     init();
     return this;

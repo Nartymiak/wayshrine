@@ -6,17 +6,16 @@
 
         ?>
 
-            <h3 class="viewTitle">Rough Drafts</h3>
-            <table id="eventDraftsTable"></table>
+            <h3 class="viewTitle">Final Drafts</h3>
+            <table id="eventFinalDraftsTable"></table>
 
             <script type="text/javascript">
-                $("#eventDraftsTable").bootstrapTable({
-                    silent: true,
+                $("#eventFinalDraftsTable").bootstrapTable({
                     height: 400,
                     search: true,
                     showRefresh: true,
                     showColumns: true,
-                    url: 'php/tables/eventDrafts.php',
+                    url: 'php/tables/eventFinalDrafts.php',
                     columns: [{
                         field: 'ID',
                         title: 'ID',
@@ -68,8 +67,8 @@
                     }]
                 });
 
-                $("#eventDraftsTable").on("click-row.bs.table", function(e, row, $element) {
-                    window.openDraftWorkSpace(row.ID, row.noteID, row.EventTitle);
+                $("#eventFinalDraftsTable").on("click-row.bs.table", function(e, row, $element) {
+                    window.openFinalDraftWorkSpace(row.ID, row.noteID, row.EventTitle);
                 });
             </script>
         

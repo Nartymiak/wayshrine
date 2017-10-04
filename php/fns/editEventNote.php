@@ -20,13 +20,17 @@
         $conn = pdo_connect();
 
         $sql = 'UPDATE 	EVENT_NOTES 
-        		SET  	Name = :Name, 
+        		SET  	Name = :Name,
+                        EventTypeID = :EventTypeID,
+                        ExhibitionID = :ExhibitionID, 
         				StartDate = :StartDate, 
         				StartTime = :StartTime,
                         EndTime = :EndTime,
+                        RegistrationEndDate = :RegistrationEndDate,
                         AdmissionCharge = :AdmissionCharge,
                         AltruButton = :AltruButton,
-                        NoteWhen = :NoteWhen, 
+                        AltruLink = :AltruLink,
+                        NoteWhen = :NoteWhen,
         				NoteWho = :NoteWho, 
         				NoteWhat = :NoteWhat, 
         				NoteWhere = :NoteWhere, 
@@ -39,11 +43,16 @@
         $statement = $conn->prepare($sql);
 
         $statement->bindValue(":Name", $_POST['Name'], PDO::PARAM_STR);
+        $statement->bindValue(":EventTypeID", $_POST['EventTypeID'], PDO::PARAM_INT);
+        $statement->bindValue(":ExhibitionID", $_POST['ExhibitionID'], PDO::PARAM_INT);
         $statement->bindValue(":StartDate", $_POST['StartDate'], PDO::PARAM_STR);
         $statement->bindValue(":StartTime", $_POST['StartTime'], PDO::PARAM_STR);
         if($_POST['EndTime'] === NULL) { $statement->bindValue(":EndTime", NULL, PDO::PARAM_STR); }
         else { $statement->bindValue(":EndTime", $_POST['EndTime'], PDO::PARAM_STR); }
+        if($_POST['RegistrationEndDate'] === NULL) { $statement->bindValue(":RegistrationEndDate", NULL, PDO::PARAM_STR); }
+        else { $statement->bindValue(":RegistrationEndDate", $_POST['RegistrationEndDate'], PDO::PARAM_STR); }
         $statement->bindValue(":AdmissionCharge", $_POST['AdmissionCharge'], PDO::PARAM_STR);
+        $statement->bindValue(":AltruLink", $_POST['AltruLink'], PDO::PARAM_STR);
         if(isset($_POST['AltruButton']) && $_POST['AltruButton'] === '1') { $statement->bindValue(":AltruButton", 1, PDO::PARAM_INT); }
         else { $statement->bindValue(":AltruButton", 0, PDO::PARAM_INT); }
         $statement->bindValue(":NoteWhen", $_POST['NoteWhen'], PDO::PARAM_STR);

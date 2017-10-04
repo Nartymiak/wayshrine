@@ -16,8 +16,14 @@
                     showColumns: true,
                     pagination: true,
                     pageSize: 100,
+                    maintainSelected: true,
+                    checkboxHeader: true,
                     url: 'php/tables/eventNotes.php',
                     columns: [{
+                        field: 'state',
+                        checkbox:true,
+                        visible: true
+                    },{
                         field: 'ID',
                         title: 'ID',
                         sortable: true,

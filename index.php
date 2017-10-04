@@ -6,7 +6,7 @@ header("Expires: 0"); // Proxies.
 <!DOCTYPE html>
 	<html>
 		<head>
-			<!-- wayshrine version 2.04.01-->
+			<!-- wayshrine version 2.05.01-->
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<meta name=viewport content="width=device-width, initial-scale=1"> 
 			<title>NBMAA Wayshrine | Review and Publish</title>
@@ -25,6 +25,7 @@ header("Expires: 0"); // Proxies.
 			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/moment.min.js"></script>
 			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/daterangepicker/daterangepicker.js"></script>
 			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/summernote/summernote.min.js"></script>
+			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/trackchanges/trackChanges.js"></script>
 			<script type="text/javascript" src="js/app.js"></script>
 		</head>
 		<body>
@@ -47,7 +48,10 @@ header("Expires: 0"); // Proxies.
 							<div id="eventDrafts" class="col-sm-12 eventList"></div>
 						</div>
 						<div class="row">
-							<div id="eventFinalCopies" class="col-sm-12 eventList"></div>
+							<div id="eventFinalDrafts" class="col-sm-12 eventList"></div>
+						</div>
+						<div class="row">
+							<div id="printTable" class="col-sm-12 eventList"></div>
 						</div>
 					</div>
 					<div id="workSpace" class="col-sm-0 slideOver"></div>
@@ -68,6 +72,10 @@ header("Expires: 0"); // Proxies.
 
 					function dateFormatter(date){
                         return moment(date, "YYYY-MM-DD").format("MMM DD, YYYY");
+					}
+
+					function printDateFormatter(date){
+                        return moment(date, "YYYY-MM-DD").format("dddd, MMMM DD, YYYY");
 					}
 
 					function timeFormatter(time){

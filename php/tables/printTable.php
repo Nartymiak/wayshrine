@@ -2,10 +2,10 @@
     include_once('../fns/getFns.php');
     include_once('../fns/checkToken.php');
 
-    $drafts = getEventDrafts();
+    $rows = getPrintTable();
     $jsonArr = array();
   
-    foreach ($drafts as $e) {
+    foreach ($rows as $e) {
 
         $user = getUser($e['OkToPub']);
         $user = $user[0]['Fname']. ' ' .$user[0]['Lname'];
@@ -18,10 +18,13 @@
             'EventType' =>  $e['Word'],
             'RelatedExhibition' =>  $e['ExhibitionTitle'],
             'StartDate' =>  $e['StartDate'],
-            'Description' =>  makeCheckMark($e['Description']),
-            'Img' =>  makeCheckMark($e['ImgFilePath']),
+            'Description' =>  $e['Description'],
+            'Img' =>  $e['ImgFilePath'],
             'Print' =>  $e['Print'],
-            'Sponsors' =>  $e['Sponsors']
+            'Sponsors' =>  $e['Sponsors'],
+            'StartTime' => $e['StartTime'],
+            'EndTime' => $e['EndTime'],
+            'AdmissionCharge' => $e['AdmissionCharge']
             )
         );
         
@@ -29,14 +32,5 @@
 
     header('Content-Type: application/json');
     echo json_encode($jsonArr);
-
-    function makeCheckMark($var){
-    
-        if(empty($var) || $var == '<p><br></p>'){ 
-            return '<span style="color:red" class="glyphicon glyphicon-remove" aria-hidden="true"></span>'; 
-        } else {
-             return '<span style="color:green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>'; 
-        }
-    }
 
 ?>
