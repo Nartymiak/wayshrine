@@ -283,14 +283,35 @@
 		$conn = pdo_connect();
 
 		// write the generic statement
-		$sql = 'SELECT 		EVENT.EventID, Title, EVENT.Description AS Description, EVENT_DRAFTS.Description AS UserVersDesc, Blurb,
+		$sql = 'SELECT 		EVENT.EventID, Title, EVENT.Description AS Description, Blurb,
 							AdmissionCharge, RegistrationEndDate, EventTypeID, ContactPerson, ImgFilePath, ImgCaption, Sponsors, AltruID, AltruButton,
-							AltruLink, Link, EventNoteID, Publish, StartDate, StartTime, EndTime, ExhibitionID, OkToPub, Print,
-							EVENT_DRAFTS.UserID AS UserVersUserID, EVENT_DRAFTS.CreatedOn AS UserVersCreatedOn
+							AltruLink, Link, EventNoteID, Publish, StartDate, StartTime, EndTime, ExhibitionID, EVENT.ChangedOn AS ChangedOn, OkToPub, Print
 	 			FROM 		EVENT
 		      	LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
 		      	LEFT JOIN 	EXHIBITION_EVENTS ON EVENT.EventID = EXHIBITION_EVENTS.EventID
-		      	LEFT JOIN 	EVENT_DRAFTS ON EVENT.EventID = EVENT_DRAFTS.EventID
+	 			WHERE 		EVENT.EventID = :id';
+
+		// prepare the statement object
+		$statement = $conn->prepare($sql);
+		$statement->bindValue(":id", $id, PDO::PARAM_STR);
+
+		$statement->execute();
+
+		//Fetch all of the results.
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		// sort result by date
+		$conn = null;
+		return $result;
+    }
+
+    function getEventChangedOn($id){
+        // create the connection
+		$conn = pdo_connect();
+
+		// write the generic statement
+		$sql = 'SELECT 		EVENT.ChangedOn AS ChangedOn
+	 			FROM 		EVENT
 	 			WHERE 		EVENT.EventID = :id';
 
 		// prepare the statement object

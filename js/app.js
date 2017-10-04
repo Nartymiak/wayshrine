@@ -3,7 +3,8 @@ wayshrine = function() {
     var pwAttempt = 0;
 
     var settings = {
-        chatInterval: 2500,
+        chatInterval: 60000,
+        autoSaveInterval: 60000,
         useBlob: false && window.URL // set to true if want to try to use blob
     }
 
@@ -28,6 +29,10 @@ wayshrine = function() {
         general: $('#generalChatView'),
         intervalID: null,
         lastMessageID: null
+    }
+
+    var autosave = {
+        intervalID: null
     }
 
     var workSpace = {
@@ -68,7 +73,7 @@ wayshrine = function() {
             view('eventNotes', 'eventNotes');
             view('eventDrafts', 'eventDrafts');
             view('eventFinalDrafts', 'eventFinalDrafts');
-            view('printTable', 'printTable');
+            //view('printTable', 'printTable');
             view('generalChat', 'generalChat', function(){
                 beginChatInterval();
                 appendChatCtrl();
@@ -84,14 +89,14 @@ wayshrine = function() {
         propsString = JSON.stringify(props);
 
         location = $('#'+location+'');
-  
+
         $.ajax({
             url: 'php/views/'+page+'.php',
             beforeSend: function(xhr){
                 xhr.setRequestHeader('Toke', jwt.unParsed);
             },
             data : {props:propsString},
-            method: 'POST',                    
+            method: 'POST',
             dataType : 'text',
             success: function(data){
                     location.empty();
@@ -139,7 +144,7 @@ wayshrine = function() {
             var form = $(this).closest("form");
             submitForm(form, controller);
         });
-        
+
         //dynamic add date & time
         $('#workSpace').on('click', '.addTime', function(e){
             e.preventDefault();
@@ -160,10 +165,10 @@ wayshrine = function() {
         });
     }
 
-    var appendUploadImgCtrl = function(){ 
+    var appendUploadImgCtrl = function(){
         window.URL  = window.URL || window.webkitURL;
         //binds to onchange event of your input field
-        $('#workSpace').on('change', '.inputFilePreview', function() {     
+        $('#workSpace').on('change', '.inputFilePreview', function() {
             var files = this.files, errors = "";
             $("#debug").empty();
             $("#imgPreview").empty();
@@ -176,8 +181,8 @@ wayshrine = function() {
                         props.imageFileName = files[i].name;
                         previewImg(files[i], 'imgPreview');
                         $("#imgFileName").val(props.imageFileName);
-                    }else { 
-                        errors += er; 
+                    }else {
+                        errors += er;
                     }
                 }
             }
@@ -223,7 +228,7 @@ wayshrine = function() {
         $.ajax({
             url: 'php/fns/addChat.php',
             type: 'POST',
-            data: serializedForm,                         
+            data: serializedForm,
             dataType : "text",
             success: function(data){
             },
@@ -231,8 +236,34 @@ wayshrine = function() {
                 console.log('error');
             },
             complete: function( xhr, status ) {
+                chat.general.empty();
+                updateChat();
             }
         });
+    }
+
+    var autoSave = function(form, controller){
+
+        var hideAlert = true;
+        editor.updateElement();
+        var origForm = form.serialize();
+        var checkForm;
+
+        if(autosave.intervalID!==null){ clearInterval(autosave.intervalID); }
+
+        autosave.intervalID = window.setInterval(function(){
+            editor.updateElement();
+            checkForm = form.serialize();
+            if(origForm !== checkForm){
+                origForm = checkForm;
+                submitForm(form, controller, hideAlert);
+                //console.log('submitting');
+            }else{
+                //console.log('not submitting');
+            }
+
+        }, settings.autoSaveInterval);
+
     }
 
     var beginChatInterval = function(){
@@ -249,8 +280,8 @@ wayshrine = function() {
     var updateChat = function(noScroll){
         view('getGeneralChat', 'generalChatView', function(){
             // update the messages title
-            $('#messagesFor').html(' ('+props.showing+')'); 
-            // notify user there is a new chat 
+            $('#messagesFor').html(' ('+props.showing+')');
+            // notify user there is a new chat
             if(noScroll !== true){
                 var lcID = $('.chatText').last().attr('cl-id');
                 if(chat.lastMessageID !== lcID){
@@ -283,10 +314,11 @@ wayshrine = function() {
         }
     }
 
-    var submitForm = function(form, controller, cb){
+    var submitForm = function(form, controller, hideAlert, cb){
 
         if(editor){
             editor.updateElement();
+            autoSave(form, controller);
         }
 
         $.ajax({
@@ -295,21 +327,27 @@ wayshrine = function() {
                 xhr.setRequestHeader('Toke', jwt.unParsed);
             },
             type: 'POST',
-            data: form.serialize(),                         
+            data: form.serialize(),
             dataType : "text",
             success: function(data){
-                $("#debug").empty();
-                $("#debug").html('<div class="alert alert-success" role="alert">'+data+'</div>');
-                // add auto chat
-                if(form.attr('id')==='eventNoteForm'){ 
-                    addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated text in <span class="chatLink" chat-link-id="'+ props.noteID +'">' + props.noteName + '</span> in NOTES'); 
-                } else if(form.attr('id')==='eventDraftForm'){
-                    addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated text in <span class="chatLink" chat-link-id="'+ props.eventID +'">' + props.eventName + '</span> in DRAFTS');
+                if(hideAlert !== true){
+                    $("#debug").empty();
+                    $("#debug").html('<div class="alert alert-success" role="alert">'+data+'</div>');
+
+                    // add auto chat
+                    if(form.attr('id')==='eventNoteForm'){
+                        addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated text in <span class="chatLink" chat-link-id="'+ props.noteID +'">' + props.noteName + '</span> in NOTES');
+                    } else if(form.attr('id')==='eventDraftForm'){
+                        addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated text in <span class="chatLink" chat-link-id="'+ props.eventID +'">' + props.eventName + '</span> in DRAFTS');
+                    }
                 }
+                view('draftChangedOn', 'draftChangedOn');
             },
             error: function( xhr, status, errorThrown ) {
-                $("#debug").empty();
-                $("#debug").html('<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Oops! Something went wrong. Your information was not saved.</strong><br> Code: ' +errorThrown+' </div>');
+                if(hideAlert !== true){
+                    $("#debug").empty();
+                    $("#debug").html('<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Oops! Something went wrong. Your information was not saved.</strong><br> Code: ' +errorThrown+' </div>');
+                }
             },
             complete: function( xhr, status ) {
                 if(cb){ cb() };
@@ -336,19 +374,19 @@ wayshrine = function() {
             });
             image.src = settings.useBlob ? window.URL.createObjectURL(file) : reader.result;
         });
-        reader.readAsDataURL(file);  
+        reader.readAsDataURL(file);
     }
 
     var uploadImg = function(form, files, controller, cb){
 
         var formData = new FormData(form[0]);
-        
+
         if(files){
             var errors = false;
             for(var i=0;i<files.length;i++){
                 var er = imgFileError(files);
                 if(er){ errors += er;}
-            }     
+            }
             if(!errors){
                 for(var j=0;j<files.length;j++){
                     formData.append("imgFiles[]", files[i]);
@@ -366,12 +404,12 @@ wayshrine = function() {
             type: 'POST',
             data: formData,
             contentType: false,
-            processData: false,                        
+            processData: false,
             dataType : 'text',
             success: function(data){
                 $("#debug").html('<div class="alert alert-success" role="alert">'+data+'</div>');
                 // add auto chat
-                addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated image for <span class="chatLink" chat-link-id="'+ props.eventID +'">' + props.eventName + '</span> in DRAFT'); 
+                addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated image for <span class="chatLink" chat-link-id="'+ props.eventID +'">' + props.eventName + '</span> in DRAFT');
             },
             error: function( xhr, status, errorThrown ) {
                 $("#debug").html('<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Oops! Something went wrong. Your information was not saved.</strong><br> Code: ' +errorThrown+' </div>');
@@ -403,7 +441,7 @@ wayshrine = function() {
             data: {
                 'username':username,
                 'password':password
-                },                         
+                },
             dataType : "json",
             success: function(data){
                 if(data.jwt === false){
@@ -432,7 +470,7 @@ wayshrine = function() {
         });
     }
 
-    var openWorkSpace = function(){
+    var openWorkSpace = function(cb){
 
       if(!workSpace.open){
         $('#workSpace').css('display', 'block');
@@ -444,6 +482,7 @@ wayshrine = function() {
         $('#workSpace').addClass(workSpace.openClass);
         workSpace.open = true;
       }
+      if(cb){ cb() };
     }
 
     var closeWorkSpace = function(){
@@ -498,32 +537,42 @@ wayshrine = function() {
     }
 
     el.openDraftWorkSpace = function(draftID, noteID, name){
-        props.eventID = draftID;
-        props.noteID = noteID;
-        props.showing = name;
-        props.eventName = name;
-        props.imageFileName = null;
-        props.noteName = null;
-        view('draftWorkSpace', 'workSpace', function(){
-            view('noteSummary', 'noteSummary');
-            workSpace.onView = 'draft';
-            openWorkSpace();
-            // text editors
-            $('#draftAdmissionCharge').summernote('destroy');
-            if (editor) { editor = null }
-            editor = CKEDITOR.replace( 'draftDescription');
-            editor.on('configLoaded', onConfigLoaded);
-            function onConfigLoaded(e) {
-                var conf = e.editor.config;
-                var lt = conf.lite = conf.lite || {};
-                lt.userName = props.username;
-                lt.userId= props.id;
-            }
+        openWorkSpace(function(){
+            props.eventID = draftID;
+            props.noteID = noteID;
+            props.showing = name;
+            props.eventName = name;
+            props.imageFileName = null;
+            props.noteName = null;
 
-            $('#imgCaption').summernote('destroy');
-            $('#draftAdmissionCharge').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
-            $('#imgCaption').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['style', ['bold', 'italic', 'clear']], ['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
+            view('draftWorkSpace', 'workSpace', function(){
+                var controller = $('#eventDraftForm .submit').attr('data-ctrl');
+                var form = $('#eventDraftForm');
+                view('noteSummary', 'noteSummary');
+                view('draftChangedOn', 'draftChangedOn');
+                workSpace.onView = 'draft';
+                // text editors
+                $('#draftAdmissionCharge').summernote('destroy');
+                if (editor) { editor = null }
+                editor = CKEDITOR.replace( 'draftDescription');
+                editor.on('configLoaded', onConfigLoaded);
+                function onConfigLoaded(e) {
+                    var conf = e.editor.config;
+                    var lt = conf.lite = conf.lite || {};
+                    lt.userName = props.username;
+                    lt.userId= props.userID;
+                }
+                $('#imgCaption').summernote('destroy');
+                $('#draftAdmissionCharge').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
+                $('#imgCaption').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['style', ['bold', 'italic', 'clear']], ['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
+
+            });
+
+            chat.general.empty();
+            updateChat();
+
         });
+
     }
 
     el.openFinalDraftWorkSpace = function(draftID, noteID, name){
@@ -547,7 +596,6 @@ wayshrine = function() {
             if (editor) { editor = null }
         });
     }
-
 
     init();
     return this;

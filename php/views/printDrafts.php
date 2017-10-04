@@ -119,7 +119,6 @@
                                     str = str.replace(/, 2017/g, "");
                                     $(this).html(str);
                                 });
-
                                 $('.time').each(function(){
                                     var str = timeFormatter($(this).html());
                                     str = str.replace(/:00/g, "");
