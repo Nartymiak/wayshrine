@@ -1,311 +1,388 @@
-//intialize vars
-var jwt = null;
-var pwAttempt = 0;
-// false means closed
-var workAreaState = false;
-// shared
-var props = {
-    userID: null,
-    noteID: null,
-    eventID: null
-};
+wayshrine = function() {
 
-var chat = {
-    note: null,
-    noteIntervalID : null
-};
+    var pwAttempt = 0;
 
-function initialize(){
-    baseLogic();
-
-    if(jwt!== null){
-        parseJWT = parseJwt(jwt);
-        props.userID = parseJWT.data.userId;
-        view('loginComplete', 'header');
-        view('menu', 'menu');
-        //consecutively load the initial things to look at
-        view('noteWorkSpace', 'workSpace');
-        view('eventNotes', 'view', null, function(){
-          view('eventDrafts', 'view', null, function(){
-            view('eventFinalCopies', 'view');
-          });
-        });
-
-        //apply some logic
-        $('#workSpace').on('click', '#viewWorkSpaceButton', function(){
-          if(!workAreaState){
-            openWorkArea();
-          }else{
-            closeWorkArea();
-          }
-        });
-
-        formLogic();
-
-        chatLogic();
-
-
-    } else {
-        view('login','view');
-        loginLogic();
+    var settings = {
+        chatInterval: 2500
     }
-}
 
-function baseLogic(){
+    var jwt = {
+        exists: false,
+        unParsed: null,
+        parsed: null
+    }
 
-    $('#app').on('click', '.genLnk', function(e){
-        e.preventDefault();
-        var mod = $(this).attr('href');
-        var loc = $(this).attr('data');
-        view(mod,loc);
-    });
-}
+    var props = {
+        userID: null,
+        userTypes: null,
+        noteID: null,
+        noteName: null,
+        eventID: null,
+        eventName: null,
+        showing: 'general'
+    }
 
-function loginLogic(){
+    var chat = {
+        general: $('#generalChatView'),
+        intervalID: null,
+        lastMessageID: null
+    }
 
-    $('#view').on('click', '#loginButton', function(e){
-        var username = $("#loginID").val();
-        var password = $("#loginPW").val();
+    var workSpace = {
+        openClass: 'col-sm-6',
+        closeClass: 'col-sm-0',
+        open: false,
+        onView: null
+    }
 
-        e.preventDefault();
-        login(username, password);
-    });
-}
+    var eventLists = {
+        openClass: 'col-sm-9',
+        closeClass: 'col-sm-3'
+    }
 
-function formLogic(){
+    var el = this;
 
-    $('#workSpace').on('click', '.submit', function(e){
-        e.preventDefault();
+    /**
+     * ===================================================================================
+     * = PRIVATE FUNCTIONS
+     * ===================================================================================
+     */
 
-        var controller = $(this).attr('data-ctrl');
-        var form = $(this).closest("form");
-        submitForm(form, controller, 
-            function(){
-                $('#view').empty();
-                view('eventNotes', 'view', null, function(){
-                  view('eventDrafts', 'view', null, function(){
-                    view('eventFinalCopies', 'view');
-                  });
-                });
-            }
-        );
-    });
-}
 
-function appendChatControls(){
-    $('#noteChatForm').submit(function(e) {
-        e.preventDefault();
-        addChat($('#noteChatForm').serialize());
-        $("#chatLine").val("");
-    });
-    $("#chatLine").keypress(function(event) {
-        if (event.which == 13) {
-            event.preventDefault();
-            addChat($('#noteChatForm').serialize());
-            $(this).val("");
+    var init = function(){
+        appendLoginCtrl();
+        draw();
+    }
+
+    var draw = function(){
+
+        if(!jwt.exists){
+            view('login','login');
+        }else{
+            view('loginComplete', 'header');
+            view('menu', 'menu');
+            view('eventNotes', 'eventNotes');
+            view('eventDrafts', 'eventDrafts');
+            view('eventFinalCopies', 'eventFinalCopies');
+            view('generalChat', 'generalChat', function(){
+                beginChatInterval();
+                appendChatCtrl();
+            });
+            appendMenuCtrl();
+            appendFormCtrl();
         }
-    });
-    chat.note = $('#noteChatView');
-}
+    }
 
-function openWorkArea(){
-  if(!workAreaState){
-    $('#viewWorkSpaceButton').addClass('rotate');
-    $('#viewWorkSpaceButton').removeClass('unrotate');
-    $('#workSpace').removeClass('col-sm-1');
-    $('#view').removeClass('col-sm-11');
-    $('#view').addClass('col-sm-3');
-    $('#workSpace').addClass('col-sm-8');
-    $('#workSpace form').css('display', 'block');
-    $('#noteChat').css('display', 'block');
-    workAreaState = true;
+    var view = function(page, location, cb){
 
-  }
-}
+        propsString = JSON.stringify(props);
 
-function closeWorkArea(){
-  if(workAreaState){
-    $('#viewWorkSpaceButton').removeClass('rotate');
-    $('#viewWorkSpaceButton').addClass('unrotate');
-    $('#view').removeClass('col-sm-3');
-    $('#workSpace').removeClass('col-sm-3');
-    $('#view').addClass('col-sm-11');
-    $('#workSpace').addClass('col-sm-1');
-    $('#workSpace form').css('display', 'none');
-    $('#noteChat').css('display', 'none');
-    workAreaState = false;
-
-  }
-}
-
-function callNoteWorkSpace(id){
-  props.noteID = id;
-  propsString = JSON.stringify(props);
-  $('#workSpace').empty();
-  view('noteWorkSpace', 'workSpace', propsString, function(){
-    openWorkArea();
-    view('chat','noteChat',propsString, function(){appendChatControls()});
-  });
-}
-
-function submitForm(form, controller, cb){
-
-    console.log(form.serialize());
-
-    $.ajax({
-        url: 'php/fns/'+controller+'.php',
-        type: 'POST',
-        data: form.serialize(),                         
-        dataType : "text",
-        success: function(data){
-            $("#debug").empty();
-            $("#debug").html('<div class="alert alert-success" role="alert">'+data+'</div>');
-            addChat('EventNoteID='+props.noteID+'&UserID='+props.userID+'&LineText=Updated event');
-        },
-        error: function( xhr, status, errorThrown ) {
-            $("#debug").empty();
-            $("#debug").html('<div class="alert alert-danger" role="alert">Oops! Something went wrong. Your information was not saved. Please try again. Code: ' +errorThrown+' </div>');
-        },
-        complete: function( xhr, status ) {
-            if(cb){ cb() };
-        }
-    });
-}
-
-function addChat(serializedForm){
-    $.ajax({
-        url: 'php/fns/addChat.php',
-        type: 'POST',
-        data: serializedForm,                         
-        dataType : "text",
-        success: function(data){
-            console.log('success');
-        },
-        error: function( xhr, status, errorThrown ) {
-            console.log('error');
-        },
-        complete: function( xhr, status ) {
-            console.log('complete');
-        }
-    });
-}
-
-function login(username, password){
-
-    $.ajax({
-        url: 'php/fns/login.php',
-        type: 'POST',
-        data: {
-            'username':username,
-            'password':password
-            },                         
-        dataType : "json",
-        success: function(data){
-      
-            jwt = data.jwt;
-            switch(jwt) {
-                case 'bad email':
-                    $('#error').empty();
-                    $('#error').html('<div class="alert alert-danger">Incorrect credentials (attempt '+pwAttempt+')</div>');
-                    jwt = null;
-                    break;
-                case 'incorrect pw':
-                    pwAttempt ++;
-                    $('#error').empty();
-                    $('#error').html('<div class="alert alert-danger">Incorrect credentials (attempt '+pwAttempt+')</div>');
-                    jwt = null;
-                    break;
-                default:
-                    pwAttempt = 0;
-                    $('#error').empty();
-                    $('#view').empty();
-                    // try it again with results
-                    initialize();
-            }
-
-        },
-        error: function( xhr, status, errorThrown ) {
-        },
-        complete: function( xhr, status ) {
-        }
-    });
-}
-
-function view(page, location, props, cb){
-   
-    $.ajax({
-        url: 'php/views/'+page+'.php',
-        beforeSend: function(xhr){
-            xhr.setRequestHeader('Toke', jwt);
-        },
-        data : {props:props},
-        method: 'POST',                    
-        dataType : 'text',
-        success: function(data){
-                //$('#'+location).empty();
-                $('#'+location).append(data);
-            
-        },
-        error: function( xhr, status, errorThrown ) {
-            console.log(errorThrown);
-        },
-        complete: function( xhr, status ) {
-            if(cb){ cb() };
-        }
-    });
-}
-
-function chatLogic(){
-
-    propsString = JSON.stringify(props);
-
-    chat.noteIntervalID = window.setInterval(function(){
-        if(chat.note !== null){
-            chat.note.empty();
-            view('getChat', 'noteChatView', propsString);
-        }
-    }, 5000);
-}
-
-function unSetChat(){
-    clearInterval(chat.noteIntervalID);
-}
-
-function checkToken(){
-
-    if(jwt === null){
-        return;
-    } else {
-
+        location = $('#'+location+'');
+  
         $.ajax({
-            url: 'php/fns/checkToken.php',
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: jwt,                         
-            type: 'post',
-            success: function(php_script_response){
-
-                $("#app").empty();
-                $( "#app").html( php_script_response );
+            url: 'php/views/'+page+'.php',
+            beforeSend: function(xhr){
+                xhr.setRequestHeader('Toke', jwt.unParsed);
+            },
+            data : {props:propsString},
+            method: 'POST',                    
+            dataType : 'text',
+            success: function(data){
+                    location.empty();
+                    location.html(data);
             },
             error: function( xhr, status, errorThrown ) {
-                
-                $("#debug").empty();
-                $( "#debug").html( "Sorry, there was a problem!" + " Error: " + errorThrown + " Status: " + status );
+                console.log(errorThrown);
             },
             complete: function( xhr, status ) {
-                
-
+                if(cb){ cb() };
             }
-
         });
     }
-}
 
-function parseJwt (token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace('-', '+').replace('_', '/');
-    return JSON.parse(window.atob(base64));
-};
+    var appendChatCtrl = function(){
+        $('#generalChatForm').submit(function(e) {
+            e.preventDefault();
+            addChat($('#generalChatForm').serialize());
+            $("#generalChatLine").val("");
+        });
+        $("#generalChatLine").keypress(function(event) {
+            if (event.which == 13) {
+                event.preventDefault();
+                addChat($('#generalChatForm').serialize());
+                $(this).val("");
+            }
+        });
+    }
+
+    var appendFormCtrl = function(){
+
+        // user clicks on submit in notes
+        $('#workSpace').on('click', '.submit', function(e){
+            e.preventDefault();
+            var controller = $(this).attr('data-ctrl');
+            var form = $(this).closest("form");
+            submitForm(form, controller);
+        });
+        // user clicks on send to draft in notes
+        $('#workSpace').on('click', '.sendNoteToDraft', function(e){
+            e.preventDefault();
+            var controller = $(this).attr('data-ctrl');
+            var form = $(this).closest("form");
+            submitForm(form, controller);
+        });
+        //dynamic add date & time
+        $('#workSpace').on('click', '.addTime', function(e){
+            e.preventDefault();
+
+            var draftDatTimeSection = $('.draftDatTimeSection'),
+                currentEntry = $(this).parents('.draftDateTimeRow:first'),
+                newEntry = $(currentEntry.clone()).appendTo(draftDatTimeSection);
+
+            newEntry.find('label').remove();
+            draftDatTimeSection.find('.draftDateTimeRow .hasAddBtn:not(:last) .addTime')
+                .removeClass('addTime').addClass('removeTime')
+                .removeClass('btn-success').addClass('btn-danger')
+                .html('<span class="glyphicon glyphicon-minus"></span>');
+
+        }).on('click', '.removeTime', function(e){
+            $(this).parents('.draftDateTimeRow:first').remove();
+            e.preventDefault();
+            return false;
+        });
+    }
+
+    var appendLoginCtrl = function(){
+
+        $('#login').on('click', '#loginButton', function(e){
+            var username = $("#loginID").val();
+            var password = $("#loginPW").val();
+
+            e.preventDefault();
+            login(username, password);
+        });
+    }
+
+    var appendMenuCtrl = function(){
+        //apply some logic
+        $('#menu').on('click', '#viewWorkSpaceButton', function(){
+          if(!workSpace.open){
+            openWorkSpace();
+          }else{
+            closeWorkSpace();
+          }
+        });
+    }
+
+    var addChat = function(serializedForm){
+        $.ajax({
+            url: 'php/fns/addChat.php',
+            type: 'POST',
+            data: serializedForm,                         
+            dataType : "text",
+            success: function(data){
+            },
+            error: function( xhr, status, errorThrown ) {
+                console.log('error');
+            },
+            complete: function( xhr, status ) {
+            }
+        });
+    }
+
+    var beginChatInterval = function(){
+
+        if(chat.intervalID!==null){ clearInterval(chat.intervalID); }
+        updateChat();
+        window.setInterval(function(){
+            if(chat.general !== null){
+                chat.general.empty();
+                updateChat();
+            }
+        }, settings.chatInterval);
+    }
+
+    var updateChat = function(noScroll){
+        view('getGeneralChat', 'generalChatView', function(){
+            // update the messages title
+            $('#messagesFor').html(' ('+props.showing+')'); 
+            // notify user there is a new chat 
+            if(noScroll !== true){
+                var lcID = $('.chatText').last().attr('cl-id');
+                if(chat.lastMessageID !== lcID){
+                    chat.lastMessageID = lcID;
+                    $('.talk-bubble').last().addClass('throb');
+                    updateChatScroll();
+                }
+            }
+            sortChat();
+        });
+    }
+
+    var updateChatScroll = function(){
+        var element = document.getElementById("generalChatView");
+            element.scrollTop = element.scrollHeight;
+    }
+
+
+    var sortChat = function(){
+        if((workSpace.onView === 'note' && props.noteID !== null) || (workSpace.onView === 'event' && props.event.ID !== null)){
+            $('.chatLine').each(function(){
+                if($(this).attr('cl-'+workSpace.onView+'-id') === props.noteID){
+                    $(this).css('display','block');
+                } else { $(this).css('display', 'none') };
+            });
+        } else {
+            $('.chatLine').each(function(){
+                $(this).css('display','block');
+             });
+        }
+    }
+
+    var submitForm = function(form, controller, cb){
+        $.ajax({
+            url: 'php/fns/'+controller+'.php',
+            beforeSend: function(xhr){
+                xhr.setRequestHeader('Toke', jwt.unParsed);
+            },
+            type: 'POST',
+            data: form.serialize(),                         
+            dataType : "text",
+            success: function(data){
+                $("#debug").empty();
+                $("#debug").html('<div class="alert alert-success" role="alert">'+data+'</div>');
+                // add auto chat
+                if(form.attr('id')==='eventNoteForm'){ 
+                    addChat('EventNoteID='+props.noteID+'&UserID='+props.userID+'&LineText=Updated <span class="chatLink" chat-link-id="'+ props.noteID +'">' + props.noteName + '</span> in NOTES'); 
+                }
+            },
+            error: function( xhr, status, errorThrown ) {
+                $("#debug").empty();
+                $("#debug").html('<div class="alert alert-danger" role="alert"><strong>Oops! Something went wrong. Your information was not saved.</strong><br> Code: ' +errorThrown+' </div>');
+            },
+            complete: function( xhr, status ) {
+                if(cb){ cb() };
+            }
+        });
+    }
+
+    var login = function(username, password){
+
+        $.ajax({
+            url: 'php/fns/login.php',
+            type: 'POST',
+            data: {
+                'username':username,
+                'password':password
+                },                         
+            dataType : "json",
+            success: function(data){
+                if(data.jwt === false){
+                    pwAttempt ++;
+                    $('#loginError').empty();
+                    $('#loginError').html('<div class="alert alert-danger">Incorrect credentials (attempts: '+pwAttempt+')</div>');
+                    jwt.exists = false;
+                } else {
+                    pwAttempt = 0;
+                    $('#loginError').empty();
+                    $('#login').empty();
+                    jwt.exists  = true;
+                    jwt.unParsed = data.jwt;
+                    jwt.parsed = parseJWT(data.jwt);
+                    props.userID = jwt.parsed.data.userID;
+                    props.userTypes = jwt.parsed.data.userTypes;
+                    draw();
+                }
+
+            },
+            error: function( xhr, status, errorThrown ) {
+            },
+            complete: function( xhr, status ) {
+            }
+        });
+    }
+
+    var openWorkSpace = function(){
+
+      if(!workSpace.open){
+        $('#workSpace').css('display', 'block');
+        $('#viewWorkSpaceButton').addClass('rotate');
+        $('#viewWorkSpaceButton').removeClass('unrotate');
+        $('#workSpace').removeClass(workSpace.closeClass);
+        $('#eventLists').removeClass(eventLists.openClass);
+        $('#eventLists').addClass(eventLists.closeClass);
+        $('#workSpace').addClass(workSpace.openClass);
+        workSpace.open = true;
+      }
+    }
+
+    var closeWorkSpace = function(){
+      if(workSpace.open){
+        $('#workSpace').css('display', 'none');
+        $('#viewWorkSpaceButton').removeClass('rotate');
+        $('#viewWorkSpaceButton').addClass('unrotate');
+        $('#eventLists').removeClass(eventLists.closeClass);
+        $('#workSpace').removeClass(workSpace.openClass);
+        $('#eventLists').addClass(eventLists.openClass);
+        $('#workSpace').addClass(workSpace.closeClass);
+        $('#noteChat').css('display', 'none');
+        workSpace.open = false;
+        workSpace.onView = null;
+        props.showing = 'general';
+      }
+    }
+
+    var parseJWT = function(token) {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace('-', '+').replace('_', '/');
+        return JSON.parse(window.atob(base64));
+    };
+
+    /**
+     * ===================================================================================
+     * = PUBLIC FUNCTIONS
+     * ===================================================================================
+     */
+
+    el.openNoteWorkSpace = function(id, name){
+        props.noteID = id;
+        props.showing = name;
+        props.noteName = name;
+        view('noteWorkSpace', 'workSpace', function(){
+            workSpace.onView = 'note';
+            openWorkSpace();
+        });
+    }
+
+    el.openDraftWorkSpace = function(id, name){
+        props.eventID = id;
+        props.showing = name;
+        props.eventName = name;
+        view('draftWorkSpace', 'workSpace', function(){
+            workSpace.onView = 'draft';
+            openWorkSpace();
+            // text editors
+            $('#draftAdmissionCharge').summernote('destroy');
+            $('#draftDescription').summernote('destroy');
+            $('#draftAdmissionCharge').summernote({
+                height: 75,
+                disableDragAndDrop: true,
+                toolbar: [['misc', ['codeview']]]
+            });
+            $('#draftDescription').summernote({
+                height: 600,
+                disableDragAndDrop: true,
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['style', 'bold', 'italic', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link','linkDialogShow', 'unlink']],
+                    ['misc', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        });
+    }
+
+    init();
+    return this;
+}

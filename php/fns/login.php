@@ -1,24 +1,23 @@
 <?php
-	include_once('../class/jwt.php');
-    include_once('../fns/getFns.php');
-	require_once('../config.php');
+	include_once("../class/jwt.php");
+    include_once("../fns/getFns.php");
+	require_once("../config.php");
 
 	$unencodedArray;
 	$jwt;
 
-	$userName = $_POST['username'];
-	$password = $_POST['password'];
+	$userName = $_POST["username"];
+	$password = $_POST["password"];
 	
 	$login = loginUser($userName, $password);
 
-
-	if ($login === 'bad email'){
-		$jwt = 'bad email';
-	
-	}else if ($login === false){
-		$jwt = 'incorrect pw';
+	if ($login === false){
+		$jwt = false;
 	
 	}else if($login){
+
+		$userTypeArray = array();
+		foreach($login as $l){ array_push($userTypeArray, $l['UserTypeID']); }
 
 		$tokenId    = base64_encode(mcrypt_create_iv(32));
 	    $issuedAt   = time();
@@ -37,8 +36,9 @@
 	        'nbf'  => $notBefore,        // Not before
 	        'exp'  => $expire,           // Expire
 	        'data' => [                  // Data related to the signer user
-	            'userId'   => $login['userID'], // userid from the users table
+	            'userID'   => $login[0]['userID'], // userid from the users table
 	            'userName' => $userName, // User name
+	            'userTypes' => $userTypeArray
 	        ]
 	    ];
 
@@ -50,7 +50,8 @@
 	}
 
 	$unencodedArray = ['jwt' => $jwt];
-	header('Content-Type: application/json');
+	
+	header('Content-type: application/json');
     echo json_encode($unencodedArray);
 
 ?>

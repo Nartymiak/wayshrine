@@ -1,24 +1,97 @@
+/* custom bootsrap */
+.col-sm-0 {width: 0 !important;float:left}
+
+/* CSS talk bubble */
+.talk-bubble {
+	margin: .75em 1.5em;
+  	display: inline-block;
+  	position: relative;
+	max-width: 166px;
+	height: auto;
+	background-color: black;
+	color:white;
+}
+/* Right triangle, left side slightly down */
+
+.tri-right.left-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  	left: -6px;
+	right: auto;
+  	top: .75em;
+	bottom: auto;
+	border: 3px solid;
+	border-color: black black transparent transparent;
+}
+
+/* Right triangle, right side slightly down*/
+
+.tri-right.right-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -6px;
+  top: auto;
+	bottom: .75em;
+	border: 3px solid;
+	border-color: black transparent transparent black;
+}
+
+/* talk bubble contents */
+.talktext{
+  padding: .75em;
+	text-align: left;
+  line-height: 1em;
+}
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  font-size: .85em;
+}
+
+ /**************/
+ /* wayshrine */
+/*************/
 .workSpaceList {
 	margin:24px 0;
 	border-top:1px solid rgba(0,0,0, .33);
 	padding:24px 0;
 }
 
-#view, #workSpace {
+#footer {
+	margin-top:10em;
+}
+
+#eventLists, #workSpace {
     -webkit-transition: width 0.3s ease, margin 0.3s ease;
     -moz-transition: width 0.3s ease, margin 0.3s ease;
     -o-transition: width 0.3s ease, margin 0.3s ease;
     transition: width 0.3s ease, margin 0.3s ease;
 }
 
+.eventList, #workSpace, #chat {
+	margin:5em 0;
+}
+
+h3.viewTitle {
+	margin:1em 0;
+	padding:1em 0;
+	border-bottom: 1px solid rgba(0, 0, 0, .33);
+}
+
 #viewWorkSpaceButton {
 	font-size:4em;
-	color:rgba(0,0,0,.33);
+	color:rgba(0,0,0,1);
 	cursor: pointer;
 }
 
-#noteChatView {
-	height:8em;
+#generalChatView {
+	height:30em;
 	overflow: scroll;
 	margin-bottom:2em;
 }
@@ -31,10 +104,26 @@
 	font-size:.75em;
 }
 
+.chatLink {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
 .rotate {
 	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
 	transition: transform .25s linear;
+}
+
+.throb {
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: 2;
+}
+
+@-webkit-keyframes pulsate {
+    0% { -webkit-transform: scale(1.0, 1.0); opacity: 1.0; }
+    50% { -webkit-transform: scale(1.1, 1.1); opacity: 0.5; }
+    100% { -webkit-transform: scale(1.0, 1.0); opacity: 1.0; }
 }
 
 .unrotate {

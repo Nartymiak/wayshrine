@@ -16,7 +16,9 @@
             $token = JWT::decode($headers['Toke'], $secretKey, array('HS512'));
 ?>
 
-                <!-- stuff goes here -->
+            <h3 style="text-align:right;">
+                <span id="viewWorkSpaceButton" class="glyphicon glyphicon-menu-left rotate" aria-hidden="true"></span>
+            </h3>
 
 
 <?php   } catch (Exception $e) {

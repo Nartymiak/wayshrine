@@ -3,7 +3,6 @@
     require_once('../config.php');
 
     $headers = getallheaders();
-    
 
     if ($headers['Toke']) {
 
@@ -24,7 +23,6 @@
     } else {
         //The request lacks the authorization token
         header('HTTP/1.0 400 Bad Request');
-        echo 'Token not found in request';
     }
 
 ?>
