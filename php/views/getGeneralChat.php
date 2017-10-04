@@ -29,7 +29,7 @@
 			    foreach ($chatLines as $line) {
 			    	if($line['UserID'] !== $userID){
 			    	?>
-			    	<div class="chatLine" cl-note-id="<?php echo $line['EventNoteID'] ?>" cl-event-id="<?php echo $line['EventID'] ?>">
+			    	<div class="chatLine" cl-note-id="<?php echo $line['EventNoteID'] ?>" cl-draft-id="<?php echo $line['EventID'] ?>">
 				    	<div class="talk-bubble tri-right left-in" style="opacity:.66;">
 				    		<div class="talktext">
 				    			<p class="chatText" cl-id="<?php echo $line['ChatLineID'] ?>" style="margin-bottom:0"> <?php echo $line['LineText'] ?></p>
@@ -40,9 +40,9 @@
 			    	<?php
 			    	} else {
 			    	?>
-			    	<div class="chatLine" cl-note-id="<?php echo $line['EventNoteID'] ?>" cl-event-id="<?php echo $line['EventID'] ?>">
+			    	<div class="chatLine" cl-note-id="<?php echo $line['EventNoteID'] ?>" cl-draft-id="<?php echo $line['EventID'] ?>">
 				    	<div style="text-align:right;">
-					    	<div class="talk-bubble tri-right right-in" style="text-align:left;" cl-note-id="<?php echo $line['EventNoteID'] ?>" cl-event-id="<?php echo $line['EventID'] ?>">
+					    	<div class="talk-bubble tri-right right-in" style="text-align:left;">
 					    		<div class="talktext">
 					    			<p class="chatText" cl-id="<?php echo $line['ChatLineID'] ?>" style="margin-bottom:0"> <?php echo $line['LineText'] ?></p>
 					    		</div>

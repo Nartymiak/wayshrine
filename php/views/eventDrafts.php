@@ -35,7 +35,7 @@
                 });
 
                 $("#eventDraftsTable").on("click-row.bs.table", function(e, row, $element) {
-                    window.openDraftWorkSpace(row.ID, row.Title);
+                    window.openDraftWorkSpace(row.ID, row.EventTitle);
                 });
             </script>
         

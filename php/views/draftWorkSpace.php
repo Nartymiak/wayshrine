@@ -14,6 +14,9 @@
 			$userTypes = $json->{'userTypes'};
 			$draft = getDraftWorkspace($id);
 			$eventTypes = getEventTypes();
+			// for dateTimes
+			$i = 0;
+			$dCount = count($draft);
 		?>
 
 			<div class="row">
@@ -52,13 +55,13 @@
 			 	<div class="row">
 			 		<div class="form-group col-sm-12">
 						<label for="description">Description</label>
-						<div id="draftDescription"><?php echo $draft[0]['Description'];?></div>
+						<textarea name="Description" id="draftDescription"><?php echo $draft[0]['Description'];?></textarea>
 					</div>
 				</div>
 				<div class="row">
 				 	<div class="form-group col-sm-9">
 						<label for="draftAdmissionCharge">Admission Charge</label>
-						<div  name="AdmissionCharge" id="draftAdmissionCharge"><?php echo $draft[0]['AdmissionCharge'];?></div>
+						<textarea name="AdmissionCharge" id="draftAdmissionCharge"><?php echo $draft[0]['AdmissionCharge'];?></textarea>
 					</div>
 				 	<div class="form-group col-sm-3">
 						<label for="draftAltruButton">Show Altru Button</label>
@@ -66,27 +69,36 @@
 					</div>
 				</div>
 				<div class=" draftDatTimeSection">
-					<div class="row draftDateTimeRow">
-					 	<div class="form-group col-sm-4">
-							<label for="draftStartDate">Date</label>
-							<input name="StartDate[]" type="date" class="form-control" id="draftStartDate" value="<?php echo $draft[0]['StartDate'];?>">
+					<?php foreach ($draft as $d){ ?>
+
+						<div class="row draftDateTimeRow">
+						 	<div class="form-group col-sm-4">
+								<label for="draftStartDate">Date</label>
+								<input name="StartDate[]" type="date" class="form-control" id="draftStartDate" value="<?php echo $draft[$i]['StartDate'];?>">
+							</div>
+						 	<div class="form-group col-sm-4">
+								<label for="draftStartTime">Start Time</label>
+								<input name="StartTime[]" type="time" class="form-control" id="draftStartTime" value="<?php echo $draft[$i]['StartTime'];?>">
+							</div>
+						 	<div class="form-group col-sm-4 hasAddBtn">
+								<label for="draftEndTime">End Time</label>
+								<div class="input-group">
+									<input name="EndTime[]" type="time" class="form-control" id="draftEndTime" value="<?php echo $draft[$i]['EndTime'];?>">
+			                    	<span class="input-group-btn">	
+			                    	<?php if($i < $dCount - 1) { ?> 
+			                    		<button class="btn btn-danger removeTime" type="button">
+			                    			<span class="glyphicon glyphicon-minus"></span>
+			                    		</button>
+			                    	<?php } else {?> 
+			                    		<button class="btn btn-success addTime" type="button">
+			                    			<span class="glyphicon glyphicon-plus"></span>
+			                    		</button>
+			                        <?php }?>
+			                        </span>
+			                    </div>
+							</div>
 						</div>
-					 	<div class="form-group col-sm-4">
-							<label for="draftStartTime">Start Time</label>
-							<input name="StartTime[]" type="time" class="form-control" id="draftStartTime" value="<?php echo $draft[0]['StartTime'];?>">
-						</div>
-					 	<div class="form-group col-sm-4 hasAddBtn">
-							<label for="draftEndTime">End Time</label>
-							<div class="input-group">
-								<input name="EndTime[]" type="time" class="form-control" id="draftEndTime" value="<?php echo $draft[0]['EndTime'];?>">
-		                    	<span class="input-group-btn">
-		                            <button class="btn btn-success btn-add addTime" type="button">
-		                                <span class="glyphicon glyphicon-plus"></span>
-		                            </button>
-		                        </span>
-		                    </div>
-						</div>
-					</div>
+					<?php $i++; } ?>
 				</div>
 			 	<div class="row">
 			 		<div class="form-group col-sm-12">

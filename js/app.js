@@ -226,9 +226,9 @@ wayshrine = function() {
 
 
     var sortChat = function(){
-        if((workSpace.onView === 'note' && props.noteID !== null) || (workSpace.onView === 'event' && props.event.ID !== null)){
+        if((workSpace.onView === 'note' && props.noteID !== null) || (workSpace.onView === 'draft' && props.eventID !== null)){
             $('.chatLine').each(function(){
-                if($(this).attr('cl-'+workSpace.onView+'-id') === props.noteID){
+                if($(this).attr('cl-'+workSpace.onView+'-id') === props.noteID || $(this).attr('cl-'+workSpace.onView+'-id') === props.eventID){
                     $(this).css('display','block');
                 } else { $(this).css('display', 'none') };
             });
@@ -254,6 +254,8 @@ wayshrine = function() {
                 // add auto chat
                 if(form.attr('id')==='eventNoteForm'){ 
                     addChat('EventNoteID='+props.noteID+'&UserID='+props.userID+'&LineText=Updated <span class="chatLink" chat-link-id="'+ props.noteID +'">' + props.noteName + '</span> in NOTES'); 
+                } else if(form.attr('id')==='eventDraftForm'){
+                    addChat('EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated <span class="chatLink" chat-link-id="'+ props.eventID +'">' + props.eventName + '</span> in DRAFTS');
                 }
             },
             error: function( xhr, status, errorThrown ) {
@@ -367,7 +369,14 @@ wayshrine = function() {
             $('#draftAdmissionCharge').summernote({
                 height: 75,
                 disableDragAndDrop: true,
-                toolbar: [['misc', ['codeview']]]
+                toolbar: [['misc', ['codeview']]],
+                callbacks: {
+                    onPaste: function (e) {
+                        var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+                        e.preventDefault();
+                        document.execCommand('insertText', false, bufferText);
+                    }
+                }
             });
             $('#draftDescription').summernote({
                 height: 600,
@@ -378,7 +387,14 @@ wayshrine = function() {
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['insert', ['link','linkDialogShow', 'unlink']],
                     ['misc', ['fullscreen', 'codeview', 'help']]
-                ]
+                ],
+                callbacks: {
+                    onPaste: function (e) {
+                        var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+                        e.preventDefault();
+                        document.execCommand('insertText', false, bufferText);
+                    }
+                }
             });
         });
     }
