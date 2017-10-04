@@ -62,7 +62,7 @@
 								<select class="form-control" id="draftEventType" name="EventTypeID">
 
 								<?php foreach($eventTypes as $et){  ?>
-									<option <?php if($et['KeywordID'] === $draft[0]['EventTypeID']){echo " selected "; } ?> value="<?php echo $et['KeywordID']; ?>"><?php echo $et['Word']; ?></option> 
+									<option <?php if($et['KeywordID'] === $draft[0]['EventTypeID']){echo " selected "; } ?> value="<?php echo $et['KeywordID']; ?>"><?php echo $et['Word']; ?></option>
 								<?php } ?>
 
 								</select>
@@ -72,9 +72,9 @@
 					 		<div class="form-group col-sm-12">
 								<label for="draftRelatedExhibition">Related Exhibition</label>
 								<select class="form-control" id="draftRelatedExhibition" name="ExhibitionID">
-								<option value="" selected>Leave blank for none</option> 
+								<option value="" selected>Leave blank for none</option>
 								<?php foreach($exhibitions as $exh){  ?>
-									<option <?php if($exh['ExhibitionID'] === $draft[0]['ExhibitionID']){echo " selected "; } ?> value="<?php echo $exh['ExhibitionID']; ?>"><?php echo $exh['Title']; ?></option> 
+									<option <?php if($exh['ExhibitionID'] === $draft[0]['ExhibitionID']){echo " selected "; } ?> value="<?php echo $exh['ExhibitionID']; ?>"><?php echo $exh['Title']; ?></option>
 								<?php } ?>
 
 								</select>
@@ -127,12 +127,12 @@
 								 	<div class="form-group col-sm-4 hasAddBtn">
 										<div class="input-group">
 											<input name="EndTime[]" type="time" class="form-control" id="draftEndTime" value="<?php echo $draft[$i]['EndTime'];?>">
-					                    	<span class="input-group-btn">	
-					                    	<?php if($i < $dCount - 1) { ?> 
+					                    	<span class="input-group-btn">
+					                    	<?php if($i < $dCount - 1) { ?>
 					                    		<button class="btn btn-danger removeTime" type="button">
 					                    			<span class="glyphicon glyphicon-minus"></span>
 					                    		</button>
-					                    	<?php } else {?> 
+					                    	<?php } else {?>
 					                    		<button class="btn btn-success addTime" type="button">
 					                    			<span class="glyphicon glyphicon-plus"></span>
 					                    		</button>
@@ -189,6 +189,10 @@
 					 			<?php if(userHasClearance(3, $userTypes)){ echo '<button style="margin-right:15px;"  type="submit" class="btn btn-success pull-right submit" data-ctrl="editEventDraft">Update</button>';}?>
 							</div>
 						</div>
+                        <div class="row" >
+					 		<div class="form-group col-sm-12" id="draftChangedOn">
+							</div>
+						</div>
 					</form>
 				</div>
 				<div class="tab-pane" id="draftImages">
@@ -219,7 +223,7 @@
 									echo '<input placeholder="Leave blank to remove any images" type="text" class="form-control file-preview-filename" id="imgFileName" name="ImgFileName">
 ';
 									} ?>
-									<span class="input-group-btn"> 
+									<span class="input-group-btn">
 										<div class="btn btn-default filePreviewBtn">
 											<span class="glyphicon glyphicon-folder-open"></span> <span class="filePreviewInputTitle">Browse</span>
 											<input type="file" accept="image/*" name="inputFilePreview" class="inputFilePreview">
@@ -244,7 +248,7 @@
 						</div>
 						<a target="_blank" href="http://www.nbmaa.org/event/<?php echo $draft[0]['Link'] ?>" class="btn btn-primary pull-right">Preview</a>
 						<?php if(userHasClearance(3, $userTypes)){ echo '<button type="button" style="margin-right:15px;" class="btn btn-labeled btn-success uploadImgBtn pull-right" data-ctrl="uploadDraftImg">Update</button>' ;}?>
-					</form>	
+					</form>
 				</div>
 			</div>
 			<div class="row">
@@ -254,6 +258,7 @@
 					</div>
 				</div>
 			</div>
+
 <?php
 		}
 	}
