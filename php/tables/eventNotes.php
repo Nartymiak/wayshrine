@@ -9,6 +9,7 @@
 
         array_push($jsonArr, array(
             'ID' =>  $e['EventID'],
+            'InDraft' => makeCheckMark(inDraft($e['EventID'])),
             'Exists' => makeCheckMark(exists($e['Name'])),
             'Name' =>  $e['Name'],
             'StartDate' =>  $e['StartDate'],

@@ -17,7 +17,7 @@
 
    	function editEvent(){
 
-        $errors = array('event' => array(), 'dateTimes' => array());
+        $errors = array('event' => array(), 'dateTimes' => array(), 'relatedExhibition' => array());
         $dateCount = count($_POST['StartDate']);
 
         $conn = pdo_connect();
@@ -32,6 +32,8 @@
         				AltruButton = :AltruButton,
                         AltruLink = :AltruLink,
                         RegistrationEndDate = :RegistrationEndDate,
+                        OkToPub = :OkToPub,
+                        Print = :Print,
         				Publish = 0
                 WHERE  	EventID = :EventID';
 
@@ -47,6 +49,12 @@
         else { $statement->bindValue(":AltruButton", 0, PDO::PARAM_INT); }
         if(isset($_POST['RegistrationCheck']) && $_POST['RegistrationCheck'] === '1') { $statement->bindValue(":RegistrationEndDate", $_POST['RegistrationEndDate'], PDO::PARAM_STR); }
         else { $statement->bindValue(":RegistrationEndDate", NULL, PDO::PARAM_STR); }
+        if(isset($_POST['OkToPubCheck']) && $_POST['OkToPubCheck'] === '1') { $statement->bindValue(":OkToPub", $_POST['UserID'], PDO::PARAM_INT); }
+        else { $statement->bindValue(":OkToPub", 0, PDO::PARAM_INT); }
+        if(isset($_POST['PrintCheck']) && $_POST['PrintCheck'] === '1') { $statement->bindValue(":Print", $_POST['Print'], PDO::PARAM_STR); }
+        else { $statement->bindValue(":Print", NULL, PDO::PARAM_STR); }
+
+
         $statement->bindValue(":EventID", $_POST['EventID'], PDO::PARAM_INT);
 
         try { $statement->execute(); }
@@ -79,6 +87,38 @@
                 try { $statement->execute(); }
                 catch (Exception $e){ array_push($errors['dateTimes'], $e->getMessage()); }
             }
+        }
+
+        if($_POST['ExhibitionID'] !== NULL){
+
+
+            $sql = 'DELETE
+                    FROM    EXHIBITION_EVENTS
+                    WHERE   EventID = :EventID';
+            $statement = $conn->prepare($sql);
+            $statement->bindValue(":EventID", $_POST['EventID'], PDO::PARAM_INT);
+
+            try { $statement->execute(); }
+            catch (Exception $e){ array_push($errors['relatedExhibition'], $e->getMessage()); }
+
+            $sql = 'INSERT INTO EXHIBITION_EVENTS (ExhibitionID, EventID)
+                    VALUES (:ExhibitionID, :EventID)';
+            $statement = $conn->prepare($sql);
+            $statement->bindValue(":EventID", $_POST['EventID'], PDO::PARAM_INT);
+            $statement->bindValue(":ExhibitionID", $_POST['ExhibitionID'], PDO::PARAM_INT);
+
+            try { $statement->execute(); }
+            catch (Exception $e){ array_push($errors['relatedExhibition'], $e->getMessage()); }
+
+        } else {
+            $sql = 'DELETE
+                    FROM    EXHIBITION_EVENTS
+                    WHERE   EventID = :EventID';
+            $statement = $conn->prepare($sql);
+            $statement->bindValue(":EventID", $_POST['EventID'], PDO::PARAM_INT);
+
+            try { $statement->execute(); }
+            catch (Exception $e){ array_push($errors['relatedExhibition'], $e->getMessage()); }
         }
 
         if(!empty($errors['event'])){

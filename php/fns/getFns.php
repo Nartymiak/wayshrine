@@ -58,6 +58,25 @@
         return $result = $result[0];
     }
 
+    function inDraft($id){
+
+    	$conn = pdo_connect();
+		
+		// write the generic statement
+		$sql = '	SELECT 	EventID
+		      		FROM    EVENT
+		      		WHERE 	EventNoteID = :ID';
+
+        $statement = $conn->prepare($sql);
+        $statement->bindValue(":ID", $id, PDO::PARAM_INT);
+        $statement->execute();
+
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $conn = null;
+        return $result = $result[0];
+    }
+
 	function getEventNotes(){
 
    		$conn = pdo_connect();
@@ -82,9 +101,12 @@
 		$conn = pdo_connect();
 
 		// write the generic statement
-		$sql = '	SELECT 		EVENT.EventID, Title, StartDate, EventNoteID
+		$sql = '	SELECT 		EVENT.EventID, EVENT.Title as EventTitle, EVENT_DATE_TIMES.StartDate, EventNoteID, OkToPub, Word, EXHIBITION.Title as ExhibitionTitle, EVENT.Description, ImgFilePath, Print, Sponsors
 		      		FROM    	EVENT
 		      		LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
+		      		LEFT JOIN 	KEYWORD ON EVENT.EventTypeID = KEYWORD.KeywordID
+		      		LEFT JOIN 	EXHIBITION_EVENTS ON EVENT.EventID = EXHIBITION_EVENTS.EventID
+		      		LEFT JOIN 	EXHIBITION ON EXHIBITION_EVENTS.ExhibitionID = EXHIBITION.ExhibitionID
 		      		WHERE 		EVENT.Publish = "0"
 		      		GROUP BY 	EVENT.EventID
 		      		ORDER BY 	EVENT_DATE_TIMES.StartDate DESC';
@@ -100,6 +122,30 @@
 		// sort result by date
 		$conn = null;
 		return $result;
+    }
+
+    function getExhibitions(){
+
+		// create the connection
+		$conn = pdo_connect();
+
+		// write the generic statement
+		$sql = '	SELECT 		ExhibitionID, Title
+		      		FROM    	EXHIBITION
+		      		ORDER BY 	EXHIBITION.ExhibitionID DESC';
+
+		// prepare the statement object
+		$statement = $conn->prepare($sql);
+
+		$statement->execute();
+
+		//Fetch all of the results.
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		// sort result by date
+		$conn = null;
+		return $result;
+
     }
 
 	function getEventFinalCopies(){
@@ -159,9 +205,10 @@
 		// write the generic statement
 		$sql = 'SELECT 		EVENT.EventID, Title, Description, Blurb, AdmissionCharge, RegistrationEndDate, 
 							EventTypeID, ContactPerson, ImgFilePath, ImgCaption, Sponsors, AltruID, AltruButton, AltruLink, 
-							Link, EventNoteID, Publish, StartDate, StartTime, EndTime
+							Link, EventNoteID, Publish, StartDate, StartTime, EndTime, ExhibitionID, OkToPub, Print
 	 			FROM 		EVENT
 		      	LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
+		      	LEFT JOIN 	EXHIBITION_EVENTS ON EVENT.EventID = EXHIBITION_EVENTS.EventID
 	 			WHERE 		EVENT.EventID = :id';
 
 		// prepare the statement object
@@ -249,6 +296,28 @@
 		return $result;	
     }
 
+    function getUser($userID){
+		$conn = pdo_connect();
+
+		// write the generic statement
+		$sql = 'SELECT 	Fname, Lname, UserID
+	 			FROM 	USER
+	 			WHERE UserID = :UserID';
+
+		// prepare the statement object
+		$statement = $conn->prepare($sql);
+		$statement->bindValue(":UserID", $userID, PDO::PARAM_INT);
+		$statement->execute();
+
+		//Fetch all of the results.
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		// sort result by date
+		$conn = null;
+		return $result;
+
+    }
+
 	function checkEmail($email){
 		
 		$result;
@@ -293,7 +362,7 @@
 	        $conn = pdo_connect();
 
 	        $sql = 'INSERT INTO USER
-	                VALUES      (null, :Email, :Password, :Fname, :Lname, null)';
+	                VALUES      (null, :Email, :Password, :Fname, :Lname,"0000-00-00 00:00:00",null)';
 
 	        // prepare the statement object
 	        $statement = $conn->prepare($sql);

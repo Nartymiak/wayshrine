@@ -294,9 +294,9 @@ wayshrine = function() {
                 $("#debug").html('<div class="alert alert-success" role="alert">'+data+'</div>');
                 // add auto chat
                 if(form.attr('id')==='eventNoteForm'){ 
-                    addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated text in<span class="chatLink" chat-link-id="'+ props.noteID +'">' + props.noteName + '</span> in NOTES'); 
+                    addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated text in <span class="chatLink" chat-link-id="'+ props.noteID +'">' + props.noteName + '</span> in NOTES'); 
                 } else if(form.attr('id')==='eventDraftForm'){
-                    addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated text in<span class="chatLink" chat-link-id="'+ props.eventID +'">' + props.eventName + '</span> in DRAFTS');
+                    addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText=Updated text in <span class="chatLink" chat-link-id="'+ props.eventID +'">' + props.eventName + '</span> in DRAFTS');
                 }
             },
             error: function( xhr, status, errorThrown ) {
