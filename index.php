@@ -6,9 +6,14 @@ header("Expires: 0"); // Proxies.
 <!DOCTYPE html>
 	<html>
 		<head>
-			<!-- wayshrine version 2.06-->
+			<!-- wayshrine version 2.07-->
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-			<meta name=viewport content="width=device-width, initial-scale=1"> 
+			<meta name=viewport content="width=device-width, initial-scale=1">
+			<meta http-equiv="cache-control" content="max-age=0" />
+			<meta http-equiv="cache-control" content="no-cache" />
+			<meta http-equiv="expires" content="0" />
+			<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+			<meta http-equiv="pragma" content="no-cache" />
 			<title>NBMAA Wayshrine | Review and Publish</title>
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/frameworks/bootstrap-3.3.7/css/bootstrap-yeti.min.css">
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/frameworks/bootstrap-3.3.7/css/bootstrap-table.min.css">
@@ -67,8 +72,8 @@ header("Expires: 0"); // Proxies.
 			</div>
 			<script type="text/javascript">
 
-					$(document).ready(function() { 
-							var wayshrineApp = wayshrine();			
+					$(document).ready(function() {
+							var wayshrineApp = wayshrine();
 					});
 
 					function dateFormatter(date){

@@ -19,7 +19,7 @@
 		$statement->bindValue(":Email", $username, PDO::PARAM_STR);
 
 	    $statement->execute();
-	        
+
 		//Fetch all of the results.
 	    $sqlResult = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -28,21 +28,21 @@
 
 	    if(empty($sqlResult)){
 	    	return false;
-	    
+
 	    } else if(crypt($password, $sqlResult[0]['Password']) === $sqlResult[0]['Password']){
-	    	
+
 	    	foreach ($sqlResult as $s){ array_push($result, array('userID' => $s['UserID'], 'userName' => $s['Email'], 'UserTypeID' => $s['UserTypeID'])); }
 	    	return $result;
-	    
+
 	    } else {
 	    	return false;
-	    }     
+	    }
 	}
 
     function exists($name){
 
     	$conn = pdo_connect();
-		
+
 		// write the generic statement
 		$sql = '	SELECT 	EventID
 		      		FROM    EVENT
@@ -61,7 +61,7 @@
     function inDraft($id){
 
     	$conn = pdo_connect();
-		
+
 		// write the generic statement
 		$sql = '	SELECT 	EventID
 		      		FROM    EVENT
@@ -83,11 +83,11 @@
 
 	 	$sql = 'SELECT 		*
 	 			FROM 		(SELECT 	EventID, AltruID, Name, StartDate, StartTime, EndTime, NoteWho, NoteWhat, NoteWhere,
-	 									NoteWhy, ImageSuggestions, Sponsors, CreatedOn 
-	 						FROM 		EVENT_NOTES 
+	 									NoteWhy, ImageSuggestions, Sponsors, CreatedOn
+	 						FROM 		EVENT_NOTES
 	 						ORDER BY 	StartDate DESC) x
 	 			GROUP BY 	Name';
-		
+
 		$statement = $conn->prepare($sql);
 	    $statement->execute();
 
@@ -158,7 +158,6 @@
 
 		}
 
-
 		// prepare the statement object
 		$statement = $conn->prepare($sql);
 
@@ -170,6 +169,35 @@
 		// sort result by date
 		$conn = null;
 		return $result;
+    }
+
+    function getPrintDrafts(){
+
+        // create the connection
+        $conn = pdo_connect();
+
+        // write the generic statement
+        $sql = '	SELECT 		EVENT.EventID, EVENT.Title as EventTitle, MAX(EVENT_DATE_TIMES.StartDate)as StartDate, EVENT_DATE_TIMES.StartTime, EVENT_DATE_TIMES.EndTime, EventNoteID, OkToPub, Word, EXHIBITION.Title as ExhibitionTitle, EVENT.Description, ImgFilePath, Print, Sponsors, AdmissionCharge
+        FROM    	EVENT
+        LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
+        LEFT JOIN 	KEYWORD ON EVENT.EventTypeID = KEYWORD.KeywordID
+        LEFT JOIN 	EXHIBITION_EVENTS ON EVENT.EventID = EXHIBITION_EVENTS.EventID
+        LEFT JOIN 	EXHIBITION ON EXHIBITION_EVENTS.ExhibitionID = EXHIBITION.ExhibitionID
+        WHERE 		EVENT.Publish = "0"
+        GROUP BY 	EVENT.EventID
+        ORDER BY 	Word';
+
+        // prepare the statement object
+        $statement = $conn->prepare($sql);
+
+        $statement->execute();
+
+        //Fetch all of the results.
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        // sort result by date
+        $conn = null;
+        return $result;
     }
 
     function getExhibitions(){
@@ -230,7 +258,7 @@
 		$conn = pdo_connect();
 
 		// write the generic statement
-		$sql = 'SELECT 	EventID, AltruID, Name, EventTypeID, ExhibitionID, StartDate, StartTime, EndTime, RegistrationEndDate, 
+		$sql = 'SELECT 	EventID, AltruID, Name, EventTypeID, ExhibitionID, StartDate, StartTime, EndTime, RegistrationEndDate,
 						AdmissionCharge, AltruButton, AltruLink, NoteWhen, NoteWho, NoteWhat, NoteWhere,
 	 					NoteWhy, ImageSuggestions, Sponsors, CreatedOn
 	 			FROM 	EVENT_NOTES
@@ -247,7 +275,7 @@
 
 		// sort result by date
 		$conn = null;
-		return $result;	
+		return $result;
     }
 
  	function getDraftWorkspace($id){
@@ -255,9 +283,9 @@
 		$conn = pdo_connect();
 
 		// write the generic statement
-		$sql = 'SELECT 		EVENT.EventID, Title, EVENT.Description AS Description, EVENT_DRAFTS.Description AS UserVersDesc, Blurb, 
-							AdmissionCharge, RegistrationEndDate, EventTypeID, ContactPerson, ImgFilePath, ImgCaption, Sponsors, AltruID, AltruButton, 
-							AltruLink, Link, EventNoteID, Publish, StartDate, StartTime, EndTime, ExhibitionID, OkToPub, Print, 
+		$sql = 'SELECT 		EVENT.EventID, Title, EVENT.Description AS Description, EVENT_DRAFTS.Description AS UserVersDesc, Blurb,
+							AdmissionCharge, RegistrationEndDate, EventTypeID, ContactPerson, ImgFilePath, ImgCaption, Sponsors, AltruID, AltruButton,
+							AltruLink, Link, EventNoteID, Publish, StartDate, StartTime, EndTime, ExhibitionID, OkToPub, Print,
 							EVENT_DRAFTS.UserID AS UserVersUserID, EVENT_DRAFTS.CreatedOn AS UserVersCreatedOn
 	 			FROM 		EVENT
 		      	LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
@@ -276,7 +304,7 @@
 
 		// sort result by date
 		$conn = null;
-		return $result;	
+		return $result;
     }
 
  	function getFinalDraftWorkspace($id){
@@ -284,8 +312,8 @@
 		$conn = pdo_connect();
 
 		// write the generic statement
-		$sql = 'SELECT 		EVENT.EventID, Title, Description, Blurb, AdmissionCharge, RegistrationEndDate, 
-							EventTypeID, ContactPerson, ImgFilePath, ImgCaption, Sponsors, AltruID, AltruButton, AltruLink, 
+		$sql = 'SELECT 		EVENT.EventID, Title, Description, Blurb, AdmissionCharge, RegistrationEndDate,
+							EventTypeID, ContactPerson, ImgFilePath, ImgCaption, Sponsors, AltruID, AltruButton, AltruLink,
 							Link, EventNoteID, Publish, StartDate, StartTime, EndTime, ExhibitionID, OkToPub, Print
 	 			FROM 		EVENT
 		      	LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
@@ -303,7 +331,7 @@
 
 		// sort result by date
 		$conn = null;
-		return $result;	
+		return $result;
     }
 
     function getWorkSpaceChatLines($id){
@@ -328,7 +356,7 @@
 
 			// sort result by date
 			$conn = null;
-			return $result;	
+			return $result;
     	}
 
     }
@@ -352,7 +380,7 @@
 
 		// sort result by date
 		$conn = null;
-		return $result;	
+		return $result;
 
 
     }
@@ -374,7 +402,7 @@
 
 		// sort result by date
 		$conn = null;
-		return $result;	
+		return $result;
     }
 
     function getUser($userID){
@@ -400,11 +428,11 @@
     }
 
 	function checkEmail($email){
-		
+
 		$result;
 
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  			$result = false; 
+  			$result = false;
   			return $result;
   		}else{
 			$conn = pdo_connect();
@@ -418,7 +446,7 @@
 			$statement->bindValue(":email", $email, PDO::PARAM_STR);
 
 		    $statement->execute();
-		        
+
 			//Fetch all of the results.
 		    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -433,7 +461,7 @@
 
 	}
 
-    // use only when developing. 
+    // use only when developing.
 	function addUser($email, $password, $fname, $lname){
 
     	$salt = "$6$" .base64_encode(openssl_random_pseudo_bytes(64));
@@ -452,11 +480,11 @@
 	        $statement->bindValue(":Password", $password, PDO::PARAM_STR);
 	        $statement->bindValue(":Fname", $fname, PDO::PARAM_STR);
 	        $statement->bindValue(":Lname", $lname, PDO::PARAM_STR);
-	        
+
 	        $statement->execute();
 
 	        $id = $conn->lastInsertId();
-	        
+
 	       	// link user id with user type in USER_TYPE_USER table
 	        $sql = 'INSERT INTO USER_TYPE_USER
 	                VALUES      (4, :id)';
@@ -465,13 +493,13 @@
 	        $statement = $conn->prepare($sql);
 
 	        $statement->bindValue(":id", $id, PDO::PARAM_INT);
-	        
+
 	        $statement->execute();
-	        
+
 	        $conn = null;
-	        
+
 	        return true;
-	    
+
 	    }else{
 
 	    	return false;
