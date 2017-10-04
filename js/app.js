@@ -42,6 +42,8 @@ wayshrine = function() {
         closeClass: 'col-sm-3'
     }
 
+    var editor = {};
+
     var el = this;
 
     /**
@@ -283,6 +285,10 @@ wayshrine = function() {
 
     var submitForm = function(form, controller, cb){
 
+        if(editor){
+            editor.updateElement();
+        }
+
         $.ajax({
             url: 'php/fns/'+controller+'.php',
             beforeSend: function(xhr){
@@ -413,6 +419,7 @@ wayshrine = function() {
                     jwt.unParsed = data.jwt;
                     jwt.parsed = parseJWT(data.jwt);
                     props.userID = jwt.parsed.data.userID;
+                    props.username = jwt.parsed.data.userName;
                     props.userTypes = jwt.parsed.data.userTypes;
                     draw();
                 }
@@ -485,6 +492,8 @@ wayshrine = function() {
             // text editors
             $('#noteAdmissionCharge').summernote('destroy');
             $('#noteAdmissionCharge').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
+            //ckeditor
+            if (editor) { editor = null }
         });
     }
 
@@ -501,10 +510,18 @@ wayshrine = function() {
             openWorkSpace();
             // text editors
             $('#draftAdmissionCharge').summernote('destroy');
-            $('#draftDescription').summernote('destroy');
+            if (editor) { editor = null }
+            editor = CKEDITOR.replace( 'draftDescription');
+            editor.on('configLoaded', onConfigLoaded);
+            function onConfigLoaded(e) {
+                var conf = e.editor.config;
+                var lt = conf.lite = conf.lite || {};
+                lt.userName = props.username;
+                lt.userId= props.id;
+            }
+
             $('#imgCaption').summernote('destroy');
             $('#draftAdmissionCharge').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
-            $('#draftDescription').summernote({ height: 600, disableDragAndDrop: true, toolbar: [['style', ['style', 'bold', 'italic', 'underline', 'clear']], ['para', ['ul', 'ol', 'paragraph']], ['insert', ['link','linkDialogShow', 'unlink']], ['misc', ['fullscreen', 'codeview', 'help']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
             $('#imgCaption').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['style', ['bold', 'italic', 'clear']], ['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
         });
     }
@@ -527,6 +544,7 @@ wayshrine = function() {
             $('#draftAdmissionCharge').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
             $('#draftDescription').summernote({ height: 600, disableDragAndDrop: true, toolbar: [['style', ['style', 'bold', 'italic', 'underline', 'clear']], ['para', ['ul', 'ol', 'paragraph']], ['insert', ['link','linkDialogShow', 'unlink']], ['misc', ['fullscreen', 'codeview', 'help']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
             $('#imgCaption').summernote({ height: 75, disableDragAndDrop: true, toolbar: [['style', ['bold', 'italic', 'clear']], ['misc', ['codeview']]], callbacks: { onPaste: function (e) { pastePlainText(e); }}});
+            if (editor) { editor = null }
         });
     }
 

@@ -6,7 +6,7 @@ header("Expires: 0"); // Proxies.
 <!DOCTYPE html>
 	<html>
 		<head>
-			<!-- wayshrine version 2.05.01-->
+			<!-- wayshrine version 2.06-->
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<meta name=viewport content="width=device-width, initial-scale=1"> 
 			<title>NBMAA Wayshrine | Review and Publish</title>
@@ -14,6 +14,7 @@ header("Expires: 0"); // Proxies.
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/frameworks/bootstrap-3.3.7/css/bootstrap-table.min.css">
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/plugins/daterangepicker/daterangepicker.css">
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/plugins/summernote/summernote.css">
+			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/plugins/trackchanges/trackchanges.css">
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/css/nbmaa4.css">
 			<link rel="stylesheet" href="css/wayshrine.css">
 			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
@@ -25,7 +26,7 @@ header("Expires: 0"); // Proxies.
 			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/moment.min.js"></script>
 			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/daterangepicker/daterangepicker.js"></script>
 			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/summernote/summernote.min.js"></script>
-			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/trackchanges/trackChanges.js"></script>
+			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/ckeditor/ckeditor.js"></script>
 			<script type="text/javascript" src="js/app.js"></script>
 		</head>
 		<body>
