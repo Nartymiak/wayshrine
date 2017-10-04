@@ -2,6 +2,38 @@
 .col-sm-0 {width: 0 !important;float:left}
 .form-control, .bootstrap-table  { font-size: .82em; }
 
+.filePreviewBtn {
+    position: relative;
+    overflow: hidden;
+    margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.filePreviewBtn input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.filePreviewInputTitle {
+    margin-left:2px;
+}
+
+.imgPreview img{
+	margin:1em 0;
+	height:0;
+    -webkit-transition: height 0.3s ease, margin 0.3s ease;
+    -moz-transition: height 0.3s ease, margin 0.3s ease;
+    -o-transition: height 0.3s ease, margin 0.3s ease;
+    transition: height 0.3s ease, margin 0.3s ease;
+}
+
 /* CSS talk bubble */
 .talk-bubble {
 	margin: .75em 1.5em;
@@ -69,6 +101,10 @@ p { letter-spacing: 1px; }
 	margin:24px 0;
 	border-top:1px solid rgba(0,0,0, .33);
 	padding:24px 0;
+}
+
+#debug {
+	margin-top: 1em;
 }
 
 #footer {

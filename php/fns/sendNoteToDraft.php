@@ -43,8 +43,8 @@
         	$newID = $conn->lastInsertId();
         }
         catch (Exception $e) { 
-        	header('HTTP/1.0 500 Server Boo Boo: '.$e->getMessage()); 
-        	die(); 
+        	header('HTTP/1.0 500 Server Boo Boo: '.$e->getMessage());
+        	die();
         }
 
         // into EVENT_DATE_TIMES
@@ -58,8 +58,8 @@
         $statement->bindValue(":StartTime", $_POST['StartTime'], PDO::PARAM_STR);
         $statement->bindValue(":EndTime", $_POST['EndTime'], PDO::PARAM_STR);
 
-        try { $statement->execute(); } 
-        catch (Exception $e) { header('HTTP/1.0 500 Server Boo Boo: ' .$e->getMessage()); }
+        try { $statement->execute();
+        } catch (Exception $e) { header('HTTP/1.0 500 Server Boo Boo: '.$e->getMessage()); }
 
         $conn = null;
         return true;

@@ -28,9 +28,10 @@
                         AdmissionCharge = :AdmissionCharge,
                         EventTypeID = :EventTypeID,
         				Sponsors = :Sponsors, 
-        				AltruID = :AltruID, 
+        				AltruID = :AltruID,
         				AltruButton = :AltruButton,
                         AltruLink = :AltruLink,
+                        RegistrationEndDate = :RegistrationEndDate,
         				Publish = 0
                 WHERE  	EventID = :EventID';
 
@@ -44,9 +45,12 @@
         $statement->bindValue(":AltruLink", $_POST['AltruLink'], PDO::PARAM_STR);
         if(isset($_POST['AltruButton']) && $_POST['AltruButton'] === '1') { $statement->bindValue(":AltruButton", 1, PDO::PARAM_INT); }
         else { $statement->bindValue(":AltruButton", 0, PDO::PARAM_INT); }
+        if(isset($_POST['RegistrationCheck']) && $_POST['RegistrationCheck'] === '1') { $statement->bindValue(":RegistrationEndDate", $_POST['RegistrationEndDate'], PDO::PARAM_STR); }
+        else { $statement->bindValue(":RegistrationEndDate", NULL, PDO::PARAM_STR); }
         $statement->bindValue(":EventID", $_POST['EventID'], PDO::PARAM_INT);
 
         try { $statement->execute(); }
+
         catch (Exception $e){ array_push($errors['event'], $e->getMessage()); }
         
         if($dateCount > 0){
@@ -77,8 +81,8 @@
             }
         }
 
-        if(!empty($errors['dateTimes'])){
-            var_dump($errors['dateTimes']);
+        if(!empty($errors['event'])){
+            var_dump($errors['event']);
         }
 
         $conn = null;
