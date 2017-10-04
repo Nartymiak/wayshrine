@@ -106,13 +106,14 @@ wayshrine = function() {
     var appendChatCtrl = function(){
         $('#generalChatForm').submit(function(e) {
             e.preventDefault();
-            addChat($('#generalChatForm').serialize());
+            addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText='+$('#generalChatLine').val());
             $("#generalChatLine").val("");
         });
         $("#generalChatLine").keypress(function(event) {
             if (event.which == 13) {
                 event.preventDefault();
-                addChat($('#generalChatForm').serialize());
+
+                addChat('EventNoteID='+props.eventNoteID+'&EventID='+props.eventID+'&UserID='+props.userID+'&LineText='+$('#generalChatLine').val());
                 $(this).val("");
             }
         });

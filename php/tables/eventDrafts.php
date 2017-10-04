@@ -7,10 +7,13 @@
   
     foreach ($drafts as $e) {
 
+        $user = getUser($e['OkToPub']);
+        $user = $user[0]['Fname']. ' ' .$user[0]['Lname'];
+
         array_push($jsonArr, array(
             'ID' =>  $e['EventID'],
             'noteID' =>  $e['EventNoteID'],
-            'OkToPub' =>  makeCheckMark($e['OkToPub']),
+            'OkToPub' =>  $user,
             'EventTitle' =>  $e['EventTitle'],
             'EventType' =>  $e['Word'],
             'RelatedExhibition' =>  $e['ExhibitionTitle'],
