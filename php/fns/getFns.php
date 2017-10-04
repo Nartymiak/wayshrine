@@ -1,14 +1,18 @@
 <?php
     include_once('../../../fns/db_fns.php');
 
+
 	// return userID and email if logged in, else return false
 	function loginUser($username, $password){
 
+		$result = array();
+
    		$conn = pdo_connect();
 
-	 	$sql = 'SELECT 	UserID, Password, Email
-	 			FROM 	USER
-	 			WHERE 	Email = :Email';
+	 	$sql = 'SELECT 		USER.UserID, Password, Email, UserTypeID
+	 			FROM 		USER
+	 			LEFT JOIN 	USER_TYPE_USER ON USER.UserID = USER_TYPE_USER.UserID
+	 			WHERE 		Email = :Email';
 
 	 	// prepare the statement object
 		$statement = $conn->prepare($sql);
@@ -17,20 +21,42 @@
 	    $statement->execute();
 	        
 		//Fetch all of the results.
-	    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+	    $sqlResult = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 
 	    $conn = null;
 
-	    if(empty($result)){
-	    	$result = 'bad email';
+	    if(empty($sqlResult)){
+	    	return false;
+	    
+	    } else if(crypt($password, $sqlResult[0]['Password']) === $sqlResult[0]['Password']){
+	    	
+	    	foreach ($sqlResult as $s){ array_push($result, array('userID' => $s['UserID'], 'userName' => $s['Email'], 'UserTypeID' => $s['UserTypeID'])); }
 	    	return $result;
-	    } else if(crypt($password, $result[0]['Password']) === $result[0]['Password']){
-	    	return array('userID' => $result[0]['UserID'], 'userName' => $result[0]['Email']);
+	    
 	    } else {
 	    	return false;
-	    }
-	        
+	    }     
 	}
+
+    function exists($name){
+
+    	$conn = pdo_connect();
+		
+		// write the generic statement
+		$sql = '	SELECT 	EventID
+		      		FROM    EVENT
+		      		WHERE 	Title = :Name';
+
+        $statement = $conn->prepare($sql);
+        $statement->bindValue(":Name", $name, PDO::PARAM_STR);
+        $statement->execute();
+
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $conn = null;
+        return $result = $result[0];
+    }
 
 	function getEventNotes(){
 
@@ -56,12 +82,12 @@
 		$conn = pdo_connect();
 
 		// write the generic statement
-		$sql = '	SELECT 		Title, StartDate
+		$sql = '	SELECT 		EVENT.EventID, Title, StartDate
 		      		FROM    	EVENT
 		      		LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
 		      		WHERE 		EVENT.Publish = "0"
 		      		GROUP BY 	EVENT.EventID
-		      		ORDER BY EVENT_DATE_TIMES.StartDate DESC';
+		      		ORDER BY 	EVENT_DATE_TIMES.StartDate DESC';
 
 		// prepare the statement object
 		$statement = $conn->prepare($sql);
@@ -102,12 +128,12 @@
 		return $result;
     }
 
-    function getEventDraft($id){
+    function getNoteWorkspace($id){
   		// create the connection
 		$conn = pdo_connect();
 
 		// write the generic statement
-		$sql = 'SELECT 	EventID, AltruID, Name, StartDate, StartTime, EndTime, NoteWhen, NoteWho, NoteWhat, NoteWhere,
+		$sql = 'SELECT 	EventID, AltruID, Name, StartDate, StartTime, EndTime, AdmissionCharge, AltruButton, NoteWhen, NoteWho, NoteWhat, NoteWhere,
 	 					NoteWhy, ImageSuggestions, Sponsors, CreatedOn
 	 			FROM 	EVENT_NOTES
 	 			WHERE 	EventID = :id';
@@ -126,7 +152,33 @@
 		return $result;	
     }
 
-    function getChatLines($id){
+ 	function getDraftWorkspace($id){
+  		// create the connection
+		$conn = pdo_connect();
+
+		// write the generic statement
+		$sql = 'SELECT 		EVENT.EventID, Title, Description, Blurb, AdmissionCharge, RegistrationEndDate, 
+							EventTypeID, ContactPerson, ImgFilePath, ImgCaption, Sponsors, AltruID, AltruButton, 
+							Link, EventNoteID, Publish, StartDate, StartTime, EndTime
+	 			FROM 		EVENT
+		      	LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
+	 			WHERE 		EVENT.EventID = :id';
+
+		// prepare the statement object
+		$statement = $conn->prepare($sql);
+		$statement->bindValue(":id", $id, PDO::PARAM_STR);
+
+		$statement->execute();
+
+		//Fetch all of the results.
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		// sort result by date
+		$conn = null;
+		return $result;	
+    }
+
+    function getWorkSpaceChatLines($id){
     	if($id){
 			$conn = pdo_connect();
 
@@ -151,6 +203,50 @@
 			return $result;	
     	}
 
+    }
+
+    function getGeneralChatLines(){
+
+		$conn = pdo_connect();
+
+		// write the generic statement
+		$sql = 'SELECT 	ChatLineID, USER.UserID, USER.Fname, USER.Lname, LineText, EventNoteID, EventID, CreatedOn
+	 			FROM 	CHAT_LINE
+	 			LEFT JOIN 	USER ON .CHAT_LINE.UserID = USER.UserID
+	 			ORDER BY CreatedOn ASC';
+
+		// prepare the statement object
+		$statement = $conn->prepare($sql);
+		$statement->execute();
+
+		//Fetch all of the results.
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		// sort result by date
+		$conn = null;
+		return $result;	
+
+
+    }
+
+    function getEventTypes(){
+		$conn = pdo_connect();
+
+		// write the generic statement
+		$sql = 'SELECT 	KeywordID, Word
+	 			FROM 	KEYWORD
+	 			ORDER BY Word ASC';
+
+		// prepare the statement object
+		$statement = $conn->prepare($sql);
+		$statement->execute();
+
+		//Fetch all of the results.
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		// sort result by date
+		$conn = null;
+		return $result;	
     }
 
 	function checkEmail($email){
@@ -213,7 +309,7 @@
 	        
 	       	// link user id with user type in USER_TYPE_USER table
 	        $sql = 'INSERT INTO USER_TYPE_USER
-	                VALUES      (3, :id)';
+	                VALUES      (4, :id)';
 
 	        // prepare the statement object
 	        $statement = $conn->prepare($sql);

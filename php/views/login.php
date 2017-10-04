@@ -4,6 +4,6 @@
 		<input class="form-control" id="loginID" name="loginID" type="email" maxlength="50" placeholder="email">
 		<input class="form-control" id='loginPW' name='loginPW' type='password' placeholder='password'>
 		<button style="vertical-align:top;" class="btn btn-primary" role="button" id="loginButton" type="submit">login</button>
-		<div id="error"></div>
+		<div id="loginError"></div>
 	</form>
 </div>

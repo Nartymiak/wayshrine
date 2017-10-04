@@ -12,6 +12,7 @@ header("Expires: 0"); // Proxies.
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/frameworks/bootstrap-3.3.7/css/bootstrap.min.css">
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/frameworks/bootstrap-3.3.7/css/bootstrap-table.min.css">
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/plugins/daterangepicker/daterangepicker.css">
+			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/plugins/summernote/summernote.css">
 			<link rel="stylesheet" href="http://www.nbmaa.org/nbmaa4/css/nbmaa4.css">
 			<link rel="stylesheet" href="css/wayshrine.css">
 			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
@@ -22,10 +23,14 @@ header("Expires: 0"); // Proxies.
 			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/frameworks/bootstrap-3.3.7/js/bootstrap-table-en-US.min.js"></script>
 			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/moment.min.js"></script>
 			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/daterangepicker/daterangepicker.js"></script>
+			<script type="text/javascript" src="http://www.nbmaa.org/nbmaa4/plugins/summernote/summernote.min.js"></script>
 			<script type="text/javascript" src="js/app.js"></script>
 		</head>
 		<body>
 			<div id="app" class="container">
+				<div class="row">
+					<div class ="col-sm-12" id="login"></div>
+				</div>
 				<div class="row">
 					<div id="header" class="col-sm-12"></div>
 				</div>
@@ -33,14 +38,31 @@ header("Expires: 0"); // Proxies.
 					<div id="menu" class="col-sm-12"></div>
 				</div>
 				<div class="row">
-					<div id="view" class="col-sm-11"></div>
-					<div id="workSpace" class="col-sm-1 slideOver"></div>
+					<div id="eventLists" class="col-sm-9">
+						<div class="row">
+							<div id="eventNotes" class="col-sm-12 eventList"></div>
+						</div>
+						<div class="row">
+							<div id="eventDrafts" class="col-sm-12 eventList"></div>
+						</div>
+						<div class="row">
+							<div id="eventFinalCopies" class="col-sm-12 eventList"></div>
+						</div>
+					</div>
+					<div id="workSpace" class="col-sm-0 slideOver"></div>
+					<div id="chat" class="col-sm-3">
+						<div id="workSpaceChat"></div>
+						<div id="generalChat"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div id="footer" class="col-sm-12"></div>
 				</div>
 			</div>
 			<script type="text/javascript">
 
 					$(document).ready(function() { 
-							initialize();					
+							var wayshrineApp = wayshrine();			
 					});
 
 					function dateFormatter(date){

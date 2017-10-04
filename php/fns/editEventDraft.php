@@ -10,12 +10,13 @@
 			}
 		}
 
-		if(editEvent()){
-            echo "Excellent! " .$_POST['Name']. " has been updated.";
-        }
+        var_dump($_POST);
+
     }
 
    	function editEvent(){
+
+        var_dump($_POST);
 
         $conn = pdo_connect();
 
