@@ -6,7 +6,7 @@
 
         ?>
 
-            <h3 class="viewTitle">Rough Drafts</h3>
+            <h3 class="viewTitle">Rough Drafts &nbsp; | &nbsp; <a target="_blank" href="http://www.nbmaa.org/wayshrine-lab/php/views/printDrafts.php" class="glyphicon glyphicon-print" aria-hidden="true"></a></h3>
             <table id="eventDraftsTable"></table>
 
             <script type="text/javascript">
@@ -72,7 +72,7 @@
                     window.openDraftWorkSpace(row.ID, row.noteID, row.EventTitle);
                 });
             </script>
-        
+
         <?php
     }
 ?>
