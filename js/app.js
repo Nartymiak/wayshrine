@@ -555,6 +555,7 @@ wayshrine = function() {
                 $('#draftAdmissionCharge').summernote('destroy');
                 if (editor) { editor = null }
                 editor = CKEDITOR.replace( 'draftDescription');
+                editor.config.customConfig = 'http://www.nbmaa.org/nbmaa4/plugins/ckeditor/ck-conf.js';
                 editor.on('configLoaded', onConfigLoaded);
                 function onConfigLoaded(e) {
                     var conf = e.editor.config;

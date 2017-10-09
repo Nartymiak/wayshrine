@@ -1,0 +1,12 @@
+[13-Feb-2017 11:15:34 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1' in /home4/nbmaa/public_html/nbmaa3/cadn/php/ajax.php:45
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/cadn/php/ajax.php(45): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/cadn/php/ajax.php(7): newEntry()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/cadn/php/ajax.php on line 45
+[13-Feb-2017 11:15:52 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1' in /home4/nbmaa/public_html/nbmaa3/cadn/php/ajax.php:45
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/cadn/php/ajax.php(45): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/cadn/php/ajax.php(7): newEntry()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/cadn/php/ajax.php on line 45

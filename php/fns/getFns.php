@@ -200,6 +200,42 @@
         return $result;
     }
 
+    function getPrintFinalDrafts($startDate, $endDate){
+        if(!$startDate){
+            $startDate = date("Y-m-d");
+        }
+        if(!$endDate){
+            $endDate = date("Y-m-d", strtotime('+3 months'));
+        }
+        // create the connection
+        $conn = pdo_connect();
+
+        // write the generic statement
+        $sql = '	SELECT 		EVENT.EventID, EVENT.Title as EventTitle, EVENT_DATE_TIMES.StartDate as StartDate, EVENT_DATE_TIMES.StartTime, EVENT_DATE_TIMES.EndTime, EventNoteID, OkToPub, Word, EXHIBITION.Title as ExhibitionTitle, EVENT.Description, ImgFilePath, Print, Sponsors, AdmissionCharge
+        FROM    	EVENT
+        LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DATE_TIMES.EventID
+        LEFT JOIN 	KEYWORD ON EVENT.EventTypeID = KEYWORD.KeywordID
+        LEFT JOIN 	EXHIBITION_EVENTS ON EVENT.EventID = EXHIBITION_EVENTS.EventID
+        LEFT JOIN 	EXHIBITION ON EXHIBITION_EVENTS.ExhibitionID = EXHIBITION.ExhibitionID
+        WHERE 		EVENT.Publish = "1"
+        AND         EVENT_DATE_TIMES.StartDate BETWEEN :startDate AND :endDate
+        GROUP BY 	EVENT.EventID
+        ORDER BY 	Word, EVENT_DATE_TIMES.startDate ASC, EVENT_DATE_TIMES.startTime ASC';
+
+        // prepare the statement object
+        $statement = $conn->prepare($sql);
+        $statement->bindValue(":startDate", $startDate, PDO::PARAM_STR);
+        $statement->bindValue(":endDate", $endDate, PDO::PARAM_STR);
+        $statement->execute();
+
+        //Fetch all of the results.
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        // sort result by date
+        $conn = null;
+        return $result;
+    }
+
     function getExhibitions(){
 
 		// create the connection

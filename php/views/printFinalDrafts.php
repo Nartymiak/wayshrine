@@ -6,7 +6,14 @@
     header("Pragma: no-cache"); // HTTP 1.0.
     header("Expires: 0"); // Proxies.
 
-    $events = getPrintDrafts();
+    if(empty($_GET)){
+        $startDate = date("Y-m-d");
+        $endDate = date("Y-m-d", strtotime('+3 months'));
+    }else{
+        $startDate = $_GET['startDate'];
+        $endDate  = $_GET['endDate'];
+    }
+    $events = getPrintFinalDrafts($startDate, $endDate);
 ?>
     <!DOCTYPE html>
     	<html>
@@ -77,33 +84,35 @@
     				<div class="row">
                         <div id="print" class="col-sm-12">
 
-                            <h2>Drafts <span class="noprint">| <a href="javascript:window.print()" class="glyphicon glyphicon-print"></a></span></h2>
+                            <h2>Final Drafts <span class="noprint">| <a href="javascript:window.print()" class="glyphicon glyphicon-print"></a></span></h2>
+                            <input type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+                            <div id="events">
 
 <?php
                             $temp;
                             foreach ($events as $e) {
 
 ?>
-                            <div class="printEvent row">
-                                <div class="col-sm-2">
-                                    <?php if($temp !== $e['Word']){ $class = null; $temp = $e['Word']; } else {$class = 'class="printshow"';}?>
-                                    <h3 <?php echo $class; ?>><small><?php  echo $e['Word']; ?></small></h3>
-                                </div>
-                                <div class="col-sm-10">
-                                    <h3><?php echo $e['EventTitle']; ?></h3>
-                                    <h4 class="dateAndTime"><span class="date"><?php echo $e['StartDate']; ?></span>, <span class="time"><?php echo $e['StartTime'];?></span>-<span class="time"><?php echo $e['EndTime'];?></span></h4>
-                                    <div class="printDescription">
-                                        <?php echo $e['Description']; ?>
-                                        <?php echo $e['AdmissionCharge']; ?>
+                                <div class="printEvent row">
+                                    <div class="col-sm-2">
+                                        <?php if($temp !== $e['Word']){ $class = null; $temp = $e['Word']; } else {$class = 'class="printshow"';}?>
+                                        <h3 <?php echo $class; ?>><small><?php  echo $e['Word']; ?></small></h3>
                                     </div>
-                                    <?php if(!empty($e['ExhibitionTitle'])){ echo '<h4><small>Related Exhibition: '.$e['ExhibitionTitle']. '</small></h4>'; }?>
-                                    <?php echo '<h4><small>Event ID: '.$e['EventID']. '</small></h4>';?>
+                                    <div class="col-sm-10">
+                                        <h3><?php echo $e['EventTitle']; ?></h3>
+                                        <h4 class="dateAndTime"><span class="date"><?php echo $e['StartDate']; ?></span>, <span class="time"><?php echo $e['StartTime'];?></span>-<span class="time"><?php echo $e['EndTime'];?></span></h4>
+                                        <div class="printDescription">
+                                            <?php echo $e['Description']; ?>
+                                            <?php echo $e['AdmissionCharge']; ?>
+                                        </div>
+                                        <?php if(!empty($e['ExhibitionTitle'])){ echo '<h4><small>Related Exhibition: '.$e['ExhibitionTitle']. '</small></h4>'; }?>
+                                        <?php echo '<h4><small>Event ID: '.$e['EventID']. '</small></h4>';?>
+                                    </div>
                                 </div>
-                            </div>
 <?php
                             }
 ?>
-
+                            </div>
                         </div>
         			</div>
                     <div class="row">
@@ -111,7 +120,7 @@
 
 <?php
 
-                            echo 'type,eventTitle,dateTime,desc,admission,relatedEx,eventID<br>';
+                            echo 'type,eventTitle,dateTime,desc,admission,relatedEx,eventID,startDate,time<br>';
                             foreach ($events as $e) {
 
                                 $desc = preg_replace('#<del(.*?)>(.*?)</del>#is', '',   $e['Description']);
@@ -125,6 +134,7 @@
                                             .htmlspecialchars(strip_tags($desc)). '&quot;,&quot;'
                                             .htmlspecialchars(strip_tags($e['AdmissionCharge'])). '&quot;,&quot;'
                                             .htmlspecialchars($e['ExhibitionTitle']). '&quot;,&quot;'
+                                            .'<span class="dateAndTime"><span class="date">' .$e['StartDate']. '</span>&quot;,&quot; <span class="time">' .$e['StartTime']. '</span>-<span class="time">' .$e['EndTime']. '</span></span>","'
                                             .$e['EventID']. '&quot;<br>';
                             }
 ?>
@@ -138,32 +148,47 @@
     			<script type="text/javascript">
 
     					$(document).ready(function() {
-    							//var wayshrineApp = wayshrine();
-                                $('.date').each(function(){
-                                    var str = printDateFormatter($(this).html());
-                                    str = str.replace(/, 2017/g, "");
-                                    $(this).html(str);
-                                });
-                                $('.time').each(function(){
-                                    var str = timeFormatter($(this).html());
-                                    str = str.replace(/:00/g, "");
-                                    str = str.replace(/AM/g, "a.m.");
-                                    str = str.replace(/PM/g, "p.m.");
-                                    str = str.replace(/12 p.m./g, "noon");
-                                    $(this).html(str);
-                                });
-                                $('.dateAndTime').each(function(){
-                                    var str = $(this).html();
-                                    var count = (str.match(/a.m./g) || []).length;
-                                    if(count === 2){
-                                        str = str.replace(' a.m.','');
-                                    }
-                                    count = (str.match(/p.m./g) || []).length;
-                                    if(count === 2){
-                                        str = str.replace(' p.m.','');
-                                    }
-                                    $(this).html(str);
-                                });
+
+                            var startDate = getParameterByName('startDate') || moment().format('YYYY-MM-DD');
+                            var endDate = getParameterByName('endDate') || moment().add(3, 'months').format('YYYY-MM-DD');
+
+                            $('input[name="daterange"]').daterangepicker({
+                                locale: {
+                                    format: 'YYYY-MM-DD'
+                                },
+                                startDate: startDate,
+                                endDate: endDate
+                            },
+                                function(start, end, label) {
+                                    window.location.href = window.location.href.split('?')[0] + '?startDate='+start.format('YYYY-MM-DD')+'&endDate='+end.format('YYYY-MM-DD');
+                            });
+
+							//var wayshrineApp = wayshrine();
+                            $('.date').each(function(){
+                                var str = printDateFormatter($(this).html());
+                                str = str.replace(/, 2017/g, "");
+                                $(this).html(str);
+                            });
+                            $('.time').each(function(){
+                                var str = timeFormatter($(this).html());
+                                str = str.replace(/:00/g, "");
+                                str = str.replace(/AM/g, "a.m.");
+                                str = str.replace(/PM/g, "p.m.");
+                                str = str.replace(/12 p.m./g, "noon");
+                                $(this).html(str);
+                            });
+                            $('.dateAndTime').each(function(){
+                                var str = $(this).html();
+                                var count = (str.match(/a.m./g) || []).length;
+                                if(count === 2){
+                                    str = str.replace(' a.m.','');
+                                }
+                                count = (str.match(/p.m./g) || []).length;
+                                if(count === 2){
+                                    str = str.replace(' p.m.','');
+                                }
+                                $(this).html(str);
+                            });
     					});
 
     					function dateFormatter(date){
@@ -184,6 +209,16 @@
     							css: {"text-align":"center"}
     						};
     					}
+
+                        function getParameterByName(name, url) {
+                            if (!url) url = window.location.href;
+                            name = name.replace(/[\[\]]/g, "\\$&");
+                            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                                results = regex.exec(url);
+                            if (!results) return null;
+                            if (!results[2]) return '';
+                            return decodeURIComponent(results[2].replace(/\+/g, " "));
+                        }
 
     			</script>
     		</body>

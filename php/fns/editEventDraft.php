@@ -1,6 +1,6 @@
 <?php
 	include_once('../../../fns/db_fns.php');
-    include_once('checkToken.php');
+  include_once('checkToken.php');
 
 	if(!empty($_POST)){
 
@@ -19,7 +19,7 @@
 
         $errors = array('eventDraft' => array(), 'event' => array(), 'dateTimes' => array(), 'relatedExhibition' => array());
         $dateCount = count($_POST['StartDate']);
-		date_default_timezone_set('America/New_York');
+				date_default_timezone_set('America/New_York');
         $changedOn = date('Y-m-d H:i:s');
 
         $conn = pdo_connect();
@@ -35,7 +35,7 @@
                         AltruButton = :AltruButton,
                         AltruLink = :AltruLink,
                         RegistrationEndDate = :RegistrationEndDate,
-						ChangedOn = :ChangedOn,
+												ChangedOn = :ChangedOn,
                         OkToPub = :OkToPub,
                         Print = :Print,
                         Publish = 0
@@ -53,8 +53,8 @@
         else { $statement->bindValue(":AltruButton", 0, PDO::PARAM_INT); }
         if(isset($_POST['RegistrationCheck']) && $_POST['RegistrationCheck'] === '1') { $statement->bindValue(":RegistrationEndDate", $_POST['RegistrationEndDate'], PDO::PARAM_STR); }
         else { $statement->bindValue(":RegistrationEndDate", NULL, PDO::PARAM_STR); }
-		$statement->bindValue(":ChangedOn", date('Y-m-d H:i:s'), PDO::PARAM_STR);
-		if(isset($_POST['OkToPubCheck']) && $_POST['OkToPubCheck'] === '1') { $statement->bindValue(":OkToPub", $_POST['UserID'], PDO::PARAM_INT); }
+				$statement->bindValue(":ChangedOn", date('Y-m-d H:i:s'), PDO::PARAM_STR);
+				if(isset($_POST['OkToPubCheck']) && $_POST['OkToPubCheck'] === '1') { $statement->bindValue(":OkToPub", $_POST['UserID'], PDO::PARAM_INT); }
         else { $statement->bindValue(":OkToPub", 0, PDO::PARAM_INT); }
         if(isset($_POST['PrintCheck']) && $_POST['PrintCheck'] === '1') { $statement->bindValue(":Print", $_POST['Print'], PDO::PARAM_STR); }
         else { $statement->bindValue(":Print", NULL, PDO::PARAM_STR); }

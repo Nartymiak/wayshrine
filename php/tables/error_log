@@ -1,0 +1,319 @@
+[25-Apr-2017 15:13:14 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/tables/eventNotes.php:11) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/tables/eventNotes.php on line 38
+[25-Apr-2017 15:22:28 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/tables/eventNotes.php on line 11
+[25-Apr-2017 15:24:24 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/tables/eventNotes.php on line 25
+[01-May-2017 13:41:05 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/tables/eventNotes.php on line 14
+[01-May-2017 13:41:31 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/tables/eventNotes.php on line 14
+[01-May-2017 13:42:05 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 50
+[01-May-2017 13:42:08 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 50
+[01-May-2017 13:42:54 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 50
+[01-May-2017 13:42:56 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 50
+[01-May-2017 13:46:38 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 13:46:59 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:06:11 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:06:13 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:06:23 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:06:25 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:06:25 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:06:25 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:06:25 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:07:18 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:07:27 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:08:00 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:08:18 America/Chicago] PHP Parse error:  syntax error, unexpected ')' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/tables/eventNotes.php on line 10
+[01-May-2017 14:08:19 America/Chicago] PHP Parse error:  syntax error, unexpected ')' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/tables/eventNotes.php on line 10
+[01-May-2017 14:08:20 America/Chicago] PHP Parse error:  syntax error, unexpected ')' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/tables/eventNotes.php on line 10
+[01-May-2017 14:08:21 America/Chicago] PHP Parse error:  syntax error, unexpected ')' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/tables/eventNotes.php on line 10
+[01-May-2017 14:08:40 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:08:41 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:08:41 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:08:43 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:08:58 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:09:05 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:09:14 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:09:21 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:10:07 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:11:20 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:16:33 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:18:13 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:18:13 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:18:14 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:18:18 America/Chicago] PHP Fatal error:  Call to a member function bindValue() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php on line 51
+[01-May-2017 14:21:46 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php:57) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/tables/eventNotes.php on line 30
+[25-May-2017 16:05:12 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:05:17 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:08:47 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:09:32 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:11:04 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:11:06 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:11:06 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:11:07 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:11:29 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM    	EVENT
+		      		LEFT JOIN 	EVENT_DATE_TIMES ON EVENT.EventID = EVENT_DA' at line 2' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:116
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(116): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 116
+[25-May-2017 16:12:32 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'Description' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:116
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(116): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 116
+[25-May-2017 16:12:33 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'Description' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:116
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(116): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 116
+[25-May-2017 16:12:42 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'Description' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:116
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(116): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 116
+[25-May-2017 16:12:48 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'Description' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:116
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(116): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 116
+[25-May-2017 16:12:53 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'Description' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:116
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(116): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 116
+[25-May-2017 16:12:58 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'Description' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:116
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(116): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 116
+[25-May-2017 16:14:35 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'KEYWORD.EventTypeID' in 'on clause'' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:14:38 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'KEYWORD.EventTypeID' in 'on clause'' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:15:37 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:15:42 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:18:47 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:18:51 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:19:49 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'EXHIBITION'' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:20:20 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:116
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(116): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 116
+[25-May-2017 16:20:25 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:116
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(116): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 116
+[25-May-2017 16:21:06 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:116
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(116): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 116
+[25-May-2017 16:21:14 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:116
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(116): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 116
+[25-May-2017 16:21:45 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:115
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(115): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 115
+[25-May-2017 16:22:47 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:23:05 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[25-May-2017 16:23:10 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'StartDate' in field list is ambiguous' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:117
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(117): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventDrafts.php(5): getEventDrafts()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 117
+[12-Jun-2017 15:51:59 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'EVENT_DATE_TIMES.StartDate' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:167
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(167): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/printTable.php(5): getPrintTable()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 167
+[12-Jun-2017 15:52:17 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'EVENT_DATE_TIMES.StartDate' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:167
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(167): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/printTable.php(5): getPrintTable()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 167
+[12-Jun-2017 15:53:34 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'EVENT_DATE_TIMES.StartDate' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:167
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(167): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/printTable.php(5): getPrintTable()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 167
+[12-Jun-2017 15:54:51 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'EVENT_DATE_TIMES.StartDate' in 'order clause'' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:167
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(167): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/printTable.php(5): getPrintTable()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 167
+[12-Jun-2017 15:55:02 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'EVENT_DATE_TIMES.StartDate' in 'order clause'' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:167
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(167): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/printTable.php(5): getPrintTable()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 167
+[12-Jun-2017 15:55:09 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'EVENT_DATE_TIMES.StartDate' in 'order clause'' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:167
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(167): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/printTable.php(5): getPrintTable()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 167
+[15-Jun-2017 12:19:06 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventFinalCopies.php on line 8
+[15-Jun-2017 12:19:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventFinalCopies.php:8) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventFinalCopies.php on line 30
+[15-Jun-2017 12:19:32 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventFinalCopies.php on line 8
+[15-Jun-2017 12:19:32 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventFinalCopies.php:8) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventFinalCopies.php on line 30
+[15-Jun-2017 12:19:39 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventFinalCopies.php on line 8
+[15-Jun-2017 12:19:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventFinalCopies.php:8) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventFinalCopies.php on line 30
+[12-Jul-2017 15:04:24 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'StartDate DESC)
+	 			GROUP BY Name' at line 3' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:90
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(90): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventNotes.php(5): getEventNotes()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 90
+[12-Jul-2017 15:05:10 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1248 Every derived table must have its own alias' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:92
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(92): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventNotes.php(5): getEventNotes()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 92
+[12-Jul-2017 15:05:43 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1248 Every derived table must have its own alias' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:92
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(92): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventNotes.php(5): getEventNotes()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 92
+[12-Jul-2017 15:09:07 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1248 Every derived table must have its own alias' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:92
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(92): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventNotes.php(5): getEventNotes()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 92
+[12-Jul-2017 15:09:09 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1248 Every derived table must have its own alias' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:92
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(92): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventNotes.php(5): getEventNotes()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 92
+[12-Jul-2017 15:09:17 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1248 Every derived table must have its own alias' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:92
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(92): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventNotes.php(5): getEventNotes()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 92
+[12-Jul-2017 15:09:22 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1248 Every derived table must have its own alias' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:92
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(92): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventNotes.php(5): getEventNotes()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 92
+[12-Jul-2017 15:09:24 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1248 Every derived table must have its own alias' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:92
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(92): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventNotes.php(5): getEventNotes()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 92
+[12-Jul-2017 15:10:20 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1248 Every derived table must have its own alias' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php:92
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php(92): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/tables/eventNotes.php(5): getEventNotes()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/getFns.php on line 92

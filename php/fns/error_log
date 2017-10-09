@@ -1,0 +1,562 @@
+[26-Jan-2017 10:23:52 America/Chicago] PHP Fatal error:  Class 'JWT' not found in /home4/nbmaa/public_html/nbmaa3/trustee/fns/checkToken.php on line 8
+[26-Jan-2017 10:55:38 America/Chicago] PHP Warning:  include_once(/config.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/checkToken.php on line 3
+[26-Jan-2017 10:55:38 America/Chicago] PHP Warning:  include_once(): Failed opening '/config.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/checkToken.php on line 3
+[26-Jan-2017 10:55:39 America/Chicago] PHP Fatal error:  Call to a member function getserverName() on a non-object in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/checkToken.php on line 9
+[26-Jan-2017 10:59:26 America/Chicago] PHP Parse error:  syntax error, unexpected 'SERVER_NAME' (T_STRING) in /home4/nbmaa/public_html/nbmaa3/trustee/php/config.php on line 9
+[26-Jan-2017 11:06:07 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/trustee/php/config.php on line 12
+[26-Jan-2017 11:17:56 America/Chicago] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/checkToken.php on line 34
+[26-Jan-2017 11:18:39 America/Chicago] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/checkToken.php on line 36
+[26-Jan-2017 13:05:14 America/Chicago] PHP Fatal error:  Call to undefined function password_hash() in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 6
+[26-Jan-2017 13:07:56 America/Chicago] PHP Fatal error:  Call to undefined function password_hash() in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 6
+[26-Jan-2017 13:24:17 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:21
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(21): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/checkToken.php(33): addUser('nicolaiart@yaho...', 'CoffeeCup1')
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 21
+[26-Jan-2017 13:24:19 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:21
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(21): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/checkToken.php(33): addUser('nicolaiart@yaho...', 'CoffeeCup1')
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 21
+[26-Jan-2017 13:25:03 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 2' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:21
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(21): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/checkToken.php(33): addUser('nicolaiart@yaho...', 'CoffeeCup1')
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 21
+[26-Jan-2017 13:52:17 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nicolaiart@yahoo.com' for key 'Email'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:21
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(21): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/checkToken.php(33): addUser('nicolaiart@yaho...', 'CoffeeCup1')
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 21
+[26-Jan-2017 14:44:23 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 29
+[26-Jan-2017 14:45:17 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 29
+[26-Jan-2017 14:45:27 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nicolaiart@yahoo.com' for key 'Email'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:45
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(45): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/checkToken.php(33): addUser('nicolaiart@yaho...', 'CoffeeCup1')
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 45
+[26-Jan-2017 14:46:06 America/Chicago] PHP Fatal error:  Function name must be a string in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 6
+[26-Jan-2017 14:46:06 America/Chicago] PHP Fatal error:  Function name must be a string in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 6
+[26-Jan-2017 14:46:49 America/Chicago] PHP Fatal error:  Function name must be a string in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 6
+[26-Jan-2017 14:50:02 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userName' in 'where clause'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:16
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(16): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): loginUser(NULL, NULL)
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 16
+[26-Jan-2017 14:51:52 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserName' in 'where clause'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:16
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(16): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): loginUser(NULL, NULL)
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 16
+[26-Jan-2017 14:52:15 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserName' in 'where clause'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:16
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(16): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): loginUser(NULL, NULL)
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 16
+[26-Jan-2017 14:52:16 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserName' in 'where clause'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:16
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(16): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): loginUser(NULL, NULL)
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 16
+[26-Jan-2017 14:52:17 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserName' in 'where clause'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:16
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(16): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): loginUser(NULL, NULL)
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 16
+[26-Jan-2017 14:52:18 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserName' in 'where clause'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:16
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(16): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): loginUser(NULL, NULL)
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 16
+[26-Jan-2017 14:52:19 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserName' in 'where clause'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:16
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(16): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): loginUser(NULL, NULL)
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 16
+[26-Jan-2017 14:52:27 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserName' in 'where clause'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:16
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(16): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): loginUser(NULL, NULL)
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 16
+[26-Jan-2017 14:52:29 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserName' in 'where clause'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:16
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(16): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): loginUser(NULL, NULL)
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 16
+[26-Jan-2017 14:52:42 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserName' in 'where clause'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:16
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(16): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): loginUser(NULL, NULL)
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 16
+[26-Jan-2017 14:53:34 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserName' in 'where clause'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:16
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(16): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): loginUser(NULL, NULL)
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 16
+[26-Jan-2017 14:55:20 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'nicolaiart@yahoo.com' for key 'Email'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:45
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(45): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(9): addUser('nicolaiart@yaho...', 'CoffeeCup1')
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 45
+[26-Jan-2017 15:22:44 America/Chicago] PHP Parse error:  syntax error, unexpected ')' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 8
+[26-Jan-2017 15:24:02 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserName' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php:17
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php(17): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php(8): loginUser('nbmuse', '07$tr57')
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/getFns.php on line 17
+[30-Jan-2017 14:15:52 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:15:56 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:01 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:02 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:08 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:09 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:12 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:13 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:13 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:15 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:15 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:16 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:29 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:33 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:37 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:16:54 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:17:01 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:17:03 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:17:11 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:18:24 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:18:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:18:35 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:18:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:19:05 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:19:07 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:19:10 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:19:13 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[30-Jan-2017 14:19:57 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php:46) in /home4/nbmaa/public_html/nbmaa3/trustee/php/fns/login.php on line 53
+[14-Feb-2017 09:10:39 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:10:39 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:10:39 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:11:00 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:11:00 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:11:00 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:12:01 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:12:01 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:12:01 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:12:41 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:12:41 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:12:41 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:12:43 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:12:43 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:12:43 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:14:08 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:14:08 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:14:08 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:15:42 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:15:42 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:15:42 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:16:56 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:16:56 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:16:56 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:16:58 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:16:58 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:16:58 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:17:34 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:17:34 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:17:34 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:17:38 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:17:38 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:17:38 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:18:25 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:18:25 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:18:25 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:19:41 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:19:41 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:19:41 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:21:36 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:21:36 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:21:36 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:21:49 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:21:49 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:21:49 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:23:33 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:23:33 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:23:33 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:23:45 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:23:45 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:23:45 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:29:09 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:29:09 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:29:09 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:30:31 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:30:31 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:30:31 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:31:36 America/Chicago] PHP Warning:  include_once(../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:31:36 America/Chicago] PHP Warning:  include_once(): Failed opening '../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:31:36 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:34:45 America/Chicago] PHP Warning:  include_once(../../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:34:45 America/Chicago] PHP Warning:  include_once(): Failed opening '../../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 2
+[14-Feb-2017 09:34:45 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/getFns.php on line 7
+[14-Feb-2017 09:34:56 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/login.php:6) in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/login.php on line 55
+[14-Feb-2017 15:24:24 America/Chicago] PHP Warning:  include_once(../../fns/db_fns.php): failed to open stream: No such file or directory in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/ajax.php on line 2
+[14-Feb-2017 15:24:24 America/Chicago] PHP Warning:  include_once(): Failed opening '../../fns/db_fns.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/ajax.php on line 2
+[14-Feb-2017 15:24:24 America/Chicago] PHP Fatal error:  Call to undefined function pdo_connect() in /home4/nbmaa/public_html/nbmaa3/cadn/php/fns/ajax.php on line 18
+[12-Apr-2017 12:08:05 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 77
+[12-Apr-2017 12:08:11 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 77
+[12-Apr-2017 12:08:18 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 77
+[12-Apr-2017 12:08:19 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 77
+[12-Apr-2017 12:08:19 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 77
+[12-Apr-2017 12:08:29 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 77
+[12-Apr-2017 12:08:30 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 77
+[12-Apr-2017 12:08:32 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 77
+[12-Apr-2017 12:41:58 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 64
+[12-Apr-2017 12:42:01 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 64
+[12-Apr-2017 12:43:01 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 64
+[12-Apr-2017 12:43:03 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 64
+[12-Apr-2017 12:44:20 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 64
+[12-Apr-2017 12:44:24 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 64
+[12-Apr-2017 12:44:40 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 64
+[12-Apr-2017 12:44:43 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 64
+[12-Apr-2017 12:49:48 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 64
+[12-Apr-2017 12:49:50 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 64
+[12-Apr-2017 12:53:04 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 65
+[12-Apr-2017 12:53:21 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 65
+[12-Apr-2017 12:53:23 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/getFns.php on line 65
+[17-Apr-2017 08:21:55 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:45
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(45): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 45
+[17-Apr-2017 08:24:07 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:45
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(45): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 45
+[17-Apr-2017 08:31:29 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:57
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(57): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 57
+[17-Apr-2017 08:33:05 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 46
+[17-Apr-2017 08:34:19 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 46
+[17-Apr-2017 08:34:39 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 46
+[17-Apr-2017 08:34:47 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 46
+[17-Apr-2017 08:34:57 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 46
+[17-Apr-2017 08:36:25 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 46
+[17-Apr-2017 08:36:40 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 46
+[17-Apr-2017 08:36:53 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 46
+[17-Apr-2017 08:37:33 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 46
+[17-Apr-2017 08:39:46 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 46
+[17-Apr-2017 08:41:24 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ImageSuggestion' in 'field list'' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 46
+[19-Apr-2017 14:09:41 America/Chicago] PHP Fatal error:  Call to undefined function addUser() in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 16
+[21-Apr-2017 13:06:15 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'UserID' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php on line 46
+[21-Apr-2017 13:06:16 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'UserID' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php on line 46
+[21-Apr-2017 13:06:25 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'UserID' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php on line 46
+[21-Apr-2017 13:06:25 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'UserID' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php on line 46
+[21-Apr-2017 13:06:25 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'UserID' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php on line 46
+[21-Apr-2017 13:06:58 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'UserID' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/addChat.php on line 46
+[24-Apr-2017 10:42:43 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:54
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(54): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 54
+[24-Apr-2017 10:43:09 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php:54
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(54): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php(12): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine/php/fns/editEventNote.php on line 54
+[25-Apr-2017 10:05:00 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:05:02 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:05:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:05:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:06:10 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:06:11 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:06:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:06:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:06:41 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:06:44 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:07:16 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php:25) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:07:44 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:07:45 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:07:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:08:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:08:07 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:08:17 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:13:46 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php:25) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:13:46 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php:25) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:13:48 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php:25) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:14:05 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php:25) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:14:13 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php:25) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:14:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/getFns.php:25) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:15:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:15:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:15:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 10:16:57 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 54
+[25-Apr-2017 12:26:51 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 48
+[25-Apr-2017 12:33:33 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 48
+[25-Apr-2017 12:33:35 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 48
+[25-Apr-2017 12:33:36 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 48
+[25-Apr-2017 12:41:32 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 48
+[25-Apr-2017 12:44:08 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 48
+[25-Apr-2017 12:44:09 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 48
+[25-Apr-2017 12:44:22 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 48
+[25-Apr-2017 12:44:24 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 48
+[26-Apr-2017 15:29:23 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'LineText' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php on line 46
+[26-Apr-2017 15:29:26 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'LineText' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php on line 46
+[26-Apr-2017 15:30:55 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'LineText' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php on line 46
+[26-Apr-2017 15:33:09 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'LineText' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php on line 46
+[26-Apr-2017 15:34:06 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'LineText' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php on line 46
+[26-Apr-2017 15:37:24 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'LineText' cannot be null' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php(12): addChat()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/addChat.php on line 46
+[26-Apr-2017 15:47:31 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 56
+[26-Apr-2017 15:47:35 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 56
+[26-Apr-2017 15:49:48 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php:14) in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/login.php on line 56
+[01-May-2017 12:16:59 America/Chicago] PHP Fatal error:  Call to undefined function sendNoteToDraft() in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/sendNoteToDraft.php on line 15
+[01-May-2017 12:16:59 America/Chicago] PHP Fatal error:  Call to undefined function sendNoteToDraft() in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/sendNoteToDraft.php on line 15
+[01-May-2017 15:43:45 America/Chicago] PHP Fatal error:  Call to a member function execute() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/sendNoteToDraft.php on line 30
+[02-May-2017 08:46:47 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE  	EventID = ''' at line 15' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php:58
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php(58): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php(13): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php on line 58
+[02-May-2017 08:47:32 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE  	EventID = ''' at line 15' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php:58
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php(58): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php(13): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php on line 58
+[02-May-2017 08:47:33 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE  	EventID = ''' at line 15' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php:58
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php(58): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php(13): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php on line 58
+[02-May-2017 08:48:06 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE  	EventID = ''' at line 14' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php:55
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php(55): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php(13): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventNote.php on line 55
+[03-May-2017 08:15:48 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 59
+[03-May-2017 08:17:38 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php:45
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php(45): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php(13): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 45
+[03-May-2017 08:18:41 America/Chicago] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE  	EventID = '493'' at line 10' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php:46
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php(46): PDOStatement->execute()
+#1 /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php(13): editEvent()
+#2 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 46
+[03-May-2017 08:19:17 America/Chicago] PHP Warning:  Illegal string offset 'StartDate' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 55
+[03-May-2017 08:19:17 America/Chicago] PHP Warning:  Illegal string offset 'StartDate' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 56
+[03-May-2017 08:19:17 America/Chicago] PHP Warning:  Illegal string offset 'StartTime' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 57
+[03-May-2017 08:19:17 America/Chicago] PHP Warning:  Illegal string offset 'EndTime' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 58
+[03-May-2017 08:19:52 America/Chicago] PHP Warning:  Illegal string offset 'StartDate' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 55
+[03-May-2017 08:19:52 America/Chicago] PHP Warning:  Illegal string offset 'StartDate' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 56
+[03-May-2017 08:19:52 America/Chicago] PHP Warning:  Illegal string offset 'StartTime' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 57
+[03-May-2017 08:19:52 America/Chicago] PHP Warning:  Illegal string offset 'EndTime' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 58
+[03-May-2017 08:20:57 America/Chicago] PHP Warning:  Illegal string offset 'StartDate' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 57
+[03-May-2017 08:20:57 America/Chicago] PHP Warning:  Illegal string offset 'StartDate' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 58
+[03-May-2017 08:20:57 America/Chicago] PHP Warning:  Illegal string offset 'StartTime' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 59
+[03-May-2017 08:20:57 America/Chicago] PHP Warning:  Illegal string offset 'EndTime' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 60
+[03-May-2017 08:23:26 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 21
+[03-May-2017 08:23:39 America/Chicago] PHP Parse error:  syntax error, unexpected ''EndTime'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home4/nbmaa/public_html/nbmaa3/wayshrine2/php/fns/editEventDraft.php on line 59
+[11-May-2017 14:31:29 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 27
+[11-May-2017 14:47:29 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 21
+[12-May-2017 09:59:43 America/Chicago] PHP Fatal error:  Uncaught exception 'Exception' with message '<p>Your image file is too large. Try to upload a file that is under 150Kb.</p>' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:69
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php(9): fileHasErrors()
+#1 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 69
+[12-May-2017 10:00:05 America/Chicago] PHP Fatal error:  Uncaught exception 'Exception' with message '<p>Your image file is too large. Try to upload a file that is under 150Kb.</p>' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:69
+Stack trace:
+#0 /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php(9): fileHasErrors()
+#1 {main}
+  thrown in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 69
+[12-May-2017 10:04:17 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 28
+[12-May-2017 10:18:16 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 19
+[12-May-2017 10:24:54 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 19
+[12-May-2017 10:27:22 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 19
+[12-May-2017 10:28:48 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 28
+[12-May-2017 10:29:04 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 28
+[12-May-2017 10:29:56 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 28
+[12-May-2017 10:30:52 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 28
+[12-May-2017 10:31:00 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 28
+[12-May-2017 10:31:34 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 19
+[12-May-2017 10:31:44 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 19
+[12-May-2017 10:32:01 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 28
+[12-May-2017 10:32:31 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 28
+[12-May-2017 13:43:34 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 28
+[12-May-2017 13:47:06 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[12-May-2017 13:47:14 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[12-May-2017 13:47:17 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[12-May-2017 13:48:36 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[12-May-2017 13:49:54 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[12-May-2017 13:56:35 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[12-May-2017 14:10:16 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[12-May-2017 15:37:10 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[12-May-2017 15:38:56 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[12-May-2017 15:57:05 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[12-May-2017 15:59:47 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[15-May-2017 14:36:53 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[15-May-2017 14:42:47 America/Chicago] PHP Fatal error:  Call to undefined function newEntry() in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 20
+[15-May-2017 15:01:23 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting catch (T_CATCH) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 25
+[15-May-2017 15:03:39 America/Chicago] PHP Parse error:  syntax error, unexpected 'catch' (T_CATCH) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 25
+[15-May-2017 15:04:00 America/Chicago] PHP Parse error:  syntax error, unexpected '}', expecting catch (T_CATCH) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 26
+[15-May-2017 15:15:17 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 37
+[15-May-2017 15:59:42 America/Chicago] PHP Parse error:  syntax error, unexpected ')', expecting '&' or variable (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 78
+[15-May-2017 16:00:00 America/Chicago] PHP Parse error:  syntax error, unexpected ')' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 91
+[15-May-2017 16:00:16 America/Chicago] PHP Fatal error:  Call to a member function prepare() on a non-object in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 85
+[16-May-2017 09:34:26 America/Chicago] PHP Parse error:  syntax error, unexpected '}', expecting catch (T_CATCH) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 27
+[16-May-2017 09:35:09 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 39
+[16-May-2017 09:40:04 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 39
+[16-May-2017 09:48:56 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php:7) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 43
+[16-May-2017 12:30:36 America/Chicago] PHP Parse error:  syntax error, unexpected ')' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 12
+[16-May-2017 12:30:53 America/Chicago] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 14
+[16-May-2017 12:41:12 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 16
+[16-May-2017 12:41:22 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/uploadDraftImg.php on line 16
+[25-May-2017 16:57:55 America/Chicago] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/editEventDraft.php on line 96
+[25-May-2017 16:58:19 America/Chicago] PHP Fatal error:  Function name must be a string in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/editEventDraft.php on line 92
+[11-Jul-2017 14:57:51 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home4/nbmaa/public_html/nbmaa3/wayshrine-lab/php/fns/editEventDraft.php on line 31
