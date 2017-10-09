@@ -6,7 +6,7 @@
 
         ?>
 
-            <h3 class="viewTitle">Final Drafts</h3>
+            <h3 class="viewTitle">Final Drafts &nbsp; | &nbsp; <a target="_blank" href="php/views/printFinalDrafts.php" class="glyphicon glyphicon-print" aria-hidden="true"></a></h3>
             <table id="eventFinalDraftsTable"></table>
 
             <script type="text/javascript">
@@ -71,7 +71,7 @@
                     window.openFinalDraftWorkSpace(row.ID, row.noteID, row.EventTitle);
                 });
             </script>
-        
+
         <?php
     }
 ?>

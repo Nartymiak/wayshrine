@@ -8,7 +8,7 @@
 
 		public function __construct() {
 			$this->serverName = $_SERVER['SERVER_NAME'];
-			$this->key = 'spiff';
+			$this->key = 'BzOyKLymiRJTXCxGpSit9dDyceM8Rlb5kuwWzy/HxiKqQS495RZO05QkeOzULEluKmbf0lcOrhKJ47XyM6m+AA==';
 		}
 		
 		public function getServerName(){
